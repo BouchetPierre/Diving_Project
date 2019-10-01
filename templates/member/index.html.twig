@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des membres du Club de la Mer{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <p> Nous sommes actuellement xxx adhérents au Club de la Mer</p>
+    </div>
+
+    <div class="container">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td>Prénom</td>
+                    <td>Nom</td>
+                    <td>Pseudo</td>
+                    <td>Niveau</td>
+                    <td>Encadrant</td>
+                    <td>Téléphone</td>
+                    <td>Tél. Urgence</td>
+                    <td>Email</td>
+                    <td>Ville</td>
+                    <td>Modifier</td>
+                    <td>Supprimer</td>
+
+                </tr>
+            </thead>
+
+            {% for member in members %}
+                <tbody>
+                <tr>
+                    <td>{{ member.name }}</td>
+                    <td>{{ member.firstName }}</td>
+                    <td>{{ member.userName }}</td>
+                    <td>{{ member.levelDive }}</td>
+                    <td>{{ member.instructor }}</td>
+                    <td>{{ member.phone1 }}</td>
+                    <td>{{ member.phone2 }}</td>
+                    <td>{{ member.mail}}</td>
+                    <td>{{ member.city }}</td>
+                    <td>Modifier</td>
+                    <td>Supprimer</td>
+                </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+
+
+
+{% endblock %}
