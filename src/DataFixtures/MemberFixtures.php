@@ -27,13 +27,15 @@ class MemberFixtures extends Fixture
             $mail = $fakerMemb->email;
             $userN = $fakerMemb->firstName;
             $sex = rand(0, 1) ? 'Homme' : 'Femme';
+            $password = $fakerMemb->password;
 
 
             $birthDay = new DateTime($dateB);
             $member->setName($name)
                    ->setFirstName($fisrtN)
-                   ->setUserName($userN)
-                   ->setAdress($address)
+                   ->setPseudo($userN)
+                   ->setPassword($password)
+                   ->setAddress($address)
                    ->setBirthdayDate($birthDay)
                    ->setCp(mt_rand(1100, 9000))
                    ->setCity($city)

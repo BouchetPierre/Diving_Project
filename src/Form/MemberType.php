@@ -27,6 +27,8 @@ class MemberType extends AbstractType
             ->add('phone2')
             ->add('numLicense')
             ->add('boatLicense')
+            ->add('password')
+
         ;
     }
 

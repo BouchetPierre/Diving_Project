@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connection au Club de la Mer{% endblock %}
+
+{% block body %}
+
+    {% if hasError %}
+        <div class="alert alert-danger"> Une erreur est survenue, le nom d'utilisateur ou alors le mot de passe est invalide</div>
+    {% endif %}
+
+
+    <form action="{{ path('account_login') }}" method="post">
+        <div class="form-group">
+            <label for="pseudo" >Votre Pseudo</label>
+            <input type="text" name="_username" id="speudo" class="form-control" placeholder="Pseudo..." required value="{{ username }}">
+        </div>
+        <div class="form-group">
+            <label for="password" >Mot de passe</label>
+            <input type="password" name="_password" id="password" placeholder="Mot de passe..." class="form-control" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Je plonge !!!</button>
+        </div>
+    </form>
+{% endblock %}

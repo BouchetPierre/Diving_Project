@@ -4,11 +4,12 @@ namespace App\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MemberRepository")
  */
-class Member
+class Member implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -30,9 +31,14 @@ class Member
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $userName;
+    private $pseudo;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $password;
+
+     /**
      * @ORM\Column(type="string", length=255)
      */
     private $sex;
@@ -60,7 +66,7 @@ class Member
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $adress;
+    private $address;
 
     /**
      * @ORM\Column(type="integer")
@@ -126,14 +132,14 @@ class Member
         return $this;
     }
 
-    public function getUserName(): ?string
+    public function getPseudo(): ?string
     {
-        return $this->userName;
+        return $this->pseudo;
     }
 
-    public function setUserName(string $userName): self
+    public function setPseudo(string $pseudo): self
     {
-        $this->userName = $userName;
+        $this->pseudo = $pseudo;
 
         return $this;
     }
@@ -198,14 +204,14 @@ class Member
         return $this;
     }
 
-    public function getAdress(): ?string
+    public function getAddress(): ?string
     {
-        return $this->adress;
+        return $this->address;
     }
 
-    public function setAdress(string $adress): self
+    public function setAddress(string $address): self
     {
-        $this->adress = $adress;
+        $this->address = $address;
 
         return $this;
     }
@@ -298,6 +304,36 @@ class Member
         }
 
         return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+
+    public function getRoles()
+    {
+        return ['ROLE_USER'];
+    }
+
+    public function getSalt()
+    {
+    }
+
+    public function getUsername()
+    {
+        return $this->pseudo;
+    }
+    public function eraseCredentials()
+    {
     }
 
     /**
