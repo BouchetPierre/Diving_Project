@@ -1,0 +1,16 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}Création d'un nouveau membre{% endblock %}
+
+{% block body %}
+        <div class="container">
+            <h1>Créer un nouvel adhérent</h1>
+
+            {{ form_start(form) }}
+
+            {{ form_widget(form) }}
+
+            <button type="submit" class="btn btn-primary">Créer un nouvel adhérent</button>
+            {{ form_end(form) }}
+        </div>
+{% endblock %}

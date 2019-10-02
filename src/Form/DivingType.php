@@ -17,7 +17,6 @@ class DivingType extends AbstractType
             ->add('description')
             ->add('places')
             ->add('levelMin')
-            ->add('fkIdResa')
         ;
     }
 

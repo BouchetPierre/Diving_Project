@@ -1,0 +1,16 @@
+{% extends 'base.html.twig'%}
+
+{% block title %}Création d'une nouvelle plongée{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Créer une nouvelle plongée</h1>
+
+        {{ form_start(form) }}
+
+        {{ form_widget(form) }}
+
+        <button type="submit" class="btn btn-primary">Créer une nouvelle plongée</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
