@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Menu Administrateur Diving-Project
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="container">
+            <h3>Bienvenue xxxx dans l'espace administrateur du site</h3>
+            <button type="button" class="btn btn-success" ><a href={{ path("diving_listeDiving") }}>Réserver une plongée</a></button>
+            <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+        </div>
+        <div class="container Hero" >
+
+        </div>
+        <div class="container">
+            <div class="container">
+                <a href={{ path("members_index") }}><h3>Membres du club</h3></a>
+            </div>
+            <div class="container">
+                <a href={{ path("diving_index") }}><h3>Les plongées</h3></a>
+            </div>
+
+        </div>
+
+
+    </div>
+
+{% endblock %}
+

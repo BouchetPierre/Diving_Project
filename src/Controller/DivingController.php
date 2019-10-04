@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DivingController extends AbstractController
 {
     /**
-     * Liste des plongées
+     * Liste des plongées pour les administrateurs
      *
      * @Route("/diving", name="diving_index")
      */
@@ -23,6 +23,20 @@ class DivingController extends AbstractController
         $diving = $repo->findAll();
 
         return $this->render('diving/index.html.twig', [
+            'diving'=> $diving,
+        ]);
+    }
+
+    /**
+     * Liste des plongées
+     *
+     * @Route("/listeDiving", name="diving_listeDiving")
+     */
+    public function liste(DivingRepository $repo)
+    {
+        $diving = $repo->findAll();
+
+        return $this->render('diving/listeDiving.html.twig', [
             'diving'=> $diving,
         ]);
     }

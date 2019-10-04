@@ -3,8 +3,13 @@
 {% block title %}Liste des membres du Club de la Mer{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container" xmlns="http://www.w3.org/1999/html">
         <p> Nous sommes actuellement xxx adhérents au Club de la Mer</p>
+        <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+        <button type="button" class="btn btn-success" ><a href={{ path("admin_index") }}>Retour</a></button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-success" ><a href={{ path("members_create") }}>Créer un nouvel adhérent</a></button>
     </div>
 
     <div class="container bg-white" >
@@ -28,19 +33,19 @@
 
             {% for member in members %}
                 <tbody>
-                <tr>
-                    <td>{{ member.name }}</td>
-                    <td>{{ member.firstName }}</td>
-                    <td>{{ member.userName }}</td>
-                    <td>{{ member.levelDive }}</td>
-                    <td>{{ member.instructor }}</td>
-                    <td>{{ member.phone1 }}</td>
-                    <td>{{ member.phone2 }}</td>
-                    <td>{{ member.mail}}</td>
-                    <td>{{ member.city }}</td>
-                    <td>Modifier</td>
-                    <td>Supprimer</td>
-                </tr>
+                    <tr>
+                        <td>{{ member.name }}</td>
+                        <td>{{ member.firstName }}</td>
+                        <td>{{ member.userName }}</td>
+                        <td>{{ member.levelDive }}</td>
+                        <td>{{ member.instructor }}</td>
+                        <td>{{ member.phone1 }}</td>
+                        <td>{{ member.phone2 }}</td>
+                        <td>{{ member.mail}}</td>
+                        <td>{{ member.city }}</td>
+                        <td><a href="">Modifier</a></td>
+                        <td><a href="">Supprimer</a></td>
+                    </tr>
                 </tbody>
             {% endfor %}
         </table>

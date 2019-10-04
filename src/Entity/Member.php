@@ -3,11 +3,20 @@
 namespace App\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MemberRepository")
+ * @UniqueEntity(
+ *     fields={"name", "firstName"},
+ *     message="Cet adhérent existe déjà !!!"
+ * )
  */
 class Member implements UserInterface
 {
@@ -30,6 +39,7 @@ class Member implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $pseudo;
 
@@ -102,6 +112,17 @@ class Member implements UserInterface
      * @ORM\OneToMany(targetEntity="App\Entity\Reservation", mappedBy="fkIdMember", cascade={"persist", "remove"})
      */
     private $kfIdResa;
+
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Role", mappedBy="users")
+     */
+    private $usersRoles;
+
+    public function __construct()
+    {
+        $this->usersRoles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -321,7 +342,12 @@ class Member implements UserInterface
 
     public function getRoles()
     {
-        return ['ROLE_USER'];
+        $roles= $this->usersRoles->map(function($role){
+            return $role->getTitle();
+        })->toArray();
+
+        $roles[] = 'ROLE_USER';
+        return $roles;
     }
 
     public function getSalt()
@@ -414,5 +440,34 @@ class Member implements UserInterface
     public function __wakeup()
     {
         // TODO: Implement __wakeup() method.
+    }
+
+
+    /**
+     * @return Collection|Role[]
+     */
+    public function getUsersRoles(): Collection
+    {
+        return $this->usersRoles;
+    }
+
+    public function addUsersRole(Role $usersRole): self
+    {
+        if (!$this->usersRoles->contains($usersRole)) {
+            $this->usersRoles[] = $usersRole;
+            $usersRole->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUsersRole(Role $usersRole): self
+    {
+        if ($this->usersRoles->contains($usersRole)) {
+            $this->usersRoles->removeElement($usersRole);
+            $usersRole->removeUser($this);
+        }
+
+        return $this;
     }
 }

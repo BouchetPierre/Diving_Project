@@ -6,10 +6,8 @@
     <div class="container">
         <p>Il y a actuellement xxx plongées programmées</p>
         <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
-        <button type="button" class="btn btn-success" ><a href={{ path("admin_index") }}>Retour</a></button>
-
+        <button type="button" class="btn btn-success" ><a href="javascript:history.go(-1)">Retour</a></button>
     </div>
-
     <div class="container bg-white" >
         <table class="table table-bordered table-striped">
             <thead>
@@ -30,8 +28,6 @@
                     <td>{{ diving.description }}</td>
                     <td>{{ diving.levelMin }}</td>
                     <td>{{ diving.places }}</td>
-                    <td><a href="">Modifier</a></td>
-                    <td><a href="">Supprimer</a></td>
                 </tr>
                 </tbody>
             {% endfor %}

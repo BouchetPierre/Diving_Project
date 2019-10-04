@@ -5,12 +5,15 @@ namespace App\Controller;
 use App\Entity\Member;
 use App\Form\MemberType;
 use App\Repository\MemberRepository;
+use Doctrine\Common\Annotations\Annotation;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
 
 class MemberController extends AbstractController
 {
@@ -35,7 +38,7 @@ class MemberController extends AbstractController
      *
      * @return Response
      */
-    public function create(Request $request, ObjectManager $manager){
+    public function create(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder){
         $member = new Member();
 
         $form = $this->createForm(MemberType::class, $member);
@@ -43,6 +46,8 @@ class MemberController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+            $password= $encoder->encodePassword($member, $member->getPassword());
+            $member->setPassword($password);
             $manager->persist($member);
             $manager->flush();
 
