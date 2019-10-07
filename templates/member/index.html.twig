@@ -43,8 +43,8 @@
                         <td>{{ member.phone2 }}</td>
                         <td>{{ member.mail}}</td>
                         <td>{{ member.city }}</td>
-                        <td><a href="">Modifier</a></td>
-                        <td><a href="">Supprimer</a></td>
+                        <td><a href="{{path('member_edit', {'pseudo': member.pseudo}) }}">Modifier</a></td>
+                        <td><a href="{{path('member_delete', {'pseudo': member.pseudo}) }}">Supprimer</a></td>
                     </tr>
                 </tbody>
             {% endfor %}

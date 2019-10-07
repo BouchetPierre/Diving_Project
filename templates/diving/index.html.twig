@@ -30,8 +30,8 @@
                     <td>{{ diving.description }}</td>
                     <td>{{ diving.levelMin }}</td>
                     <td>{{ diving.places }}</td>
-                    <td><a href="">Modifier</a></td>
-                    <td><a href="">Supprimer</a></td>
+                    <td><a href={{path('diving_edit', {'id': diving.id}) }}>Modifier</a></td>
+                    <td><a href="{{path('diving_delete', {'id': diving.id}) }}">Supprimer</a></td>
                 </tr>
                 </tbody>
             {% endfor %}

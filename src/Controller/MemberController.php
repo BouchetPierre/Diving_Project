@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 
 class MemberController extends AbstractController
@@ -65,6 +66,73 @@ class MemberController extends AbstractController
     }
 
     /**
+     * Affiche un membre
+     *
+     * @Route("members/{pseudo}", name="member_show")
+     *
+     * @return Response
+     */
+    public function show($pseudo, MemberRepository $repo){
+        $member = $repo->findOneByPseudo($pseudo);
+
+        return $this->render('member/show.html.twig', [
+            'member' => $member
+        ]);
+    }
+
+    /**
+     * Modifier un Membre
+     *
+     * @Route("members/{pseudo}/edit", name="member_edit")
+     *
+     * @return Response
+     */
+    public function edit(Member $member, Request $request, ObjectManager $manager){
+        $form = $this->createForm(MemberType::class, $member);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $manager->persist($member);
+            $manager->flush();
+
+            $this->addFlash(
+                'success',
+                "La fiche de {$member->getPseudo()} a bien été modifiée !"
+            );
+
+            return $this->redirectToRoute('members_index');
+        }
+
+        return $this->render('member/edit.html.twig',[
+            'form' =>$form->createView()
+        ]);
+    }
+
+
+    /**
+     * Supprimer une membre
+     *
+     * @Route("/members/{pseudo}/delete", name="member_delete" )
+     *
+     * @param Member $member
+     * @param ObjectManager $manager
+     * @return Response
+     *
+     */
+    public function delete(Member $member, ObjectManager $manager){
+        $manager->remove($member);
+        $manager->flush();
+
+        $this->addFlash(
+            'success',
+            "La fiche de {$member->getPseudo()} a bien été supprimée !"
+        );
+
+        return $this->redirectToRoute("members_index");
+    }
+
+    /**
      * Permet d'afficher et de gérer le formulaire de connexion
      *
      * @Route("/login", name="account_login")
@@ -90,6 +158,20 @@ class MemberController extends AbstractController
      */
 
     public function logout(){}
+
+
+    /**
+     * Affichage du menu Admin
+     *
+     * @Route("/admin", name="admin_index")
+     * @IsGranted("ROLE_ADMIN")
+     */
+    public function AdminMenu()
+    {
+        return $this->render('admin/index.html.twig', [
+            'controller_name' => 'AdminController',
+        ]);
+    }
 
 
 }
