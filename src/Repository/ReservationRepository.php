@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Reservation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query\AST\Join;
 
 /**
  * @method Reservation|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,22 +20,39 @@ class ReservationRepository extends ServiceEntityRepository
         parent::__construct($registry, Reservation::class);
     }
 
-    // /**
-    //  * @return Reservation[] Returns an array of Reservation objects
-    //  */
-    /*
-    public function findByExampleField($value)
+     /**
+     * @return Reservation[] Returns an array of Reservation objects
+     */
+
+    public function findByUser($id)
     {
         return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
+            ->select('r.id', 'rc.location', 'rc.description', 'rc.date', 'rc.levelMin', 'rc.id as idD', 'rd.id as idM')
+            ->Where('rd.id='.$id)
+            ->innerJoin('r.fkIdDiving', 'rc', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdDiving = rc.id' )
+            ->innerJoin('r.fkIdMember', 'rd', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdMember = rd.id' )
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
+
+    /**
+     * @return Reservation[] Returns an array of Reservation objects
+     */
+
+    public function  findDivMember($id)
+    {
+        return $this->createQueryBuilder('r')
+            ->select('r.id', 'rc.name', 'rc.pseudo', 'rc.firstName', 'rc.levelDive')
+            ->Where('rd.id ='.$id)
+            ->innerJoin('r.fkIdMember', 'rc', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdMember = rc.id' )
+            ->innerJoin('r.fkIdDiving', 'rd', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdDiving = rd.id' )
+            ->getQuery()
+            ->getResult()
+        ;
+
+    }
 
     /*
     public function findOneBySomeField($value): ?Reservation

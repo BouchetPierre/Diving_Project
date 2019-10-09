@@ -17,6 +17,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     fields={"name", "firstName"},
  *     message="Cet adhérent existe déjà !!!"
  * )
+ *
  */
 class Member implements UserInterface
 {
@@ -111,7 +112,7 @@ class Member implements UserInterface
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Reservation", mappedBy="fkIdMember", cascade={"persist", "remove"})
      */
-    private $kfIdResa;
+    private $fkIdResa;
 
 
     /**

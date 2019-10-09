@@ -8,12 +8,21 @@
         <button type="button" class="btn btn-success" ><a href="javascript:history.go(-1)">Retour</a></button>
     </div>
     <div class="container">
+        Reservation de la plongée : {{ diving.id }}
+    </div>
+    <div class="container">
+        <div>
+            {{ diving.location }}
+        </div>
+        <div>
+            {{ diving.description }}
+        </div>
+    </div>
+    <div class="container">
         {{ form_start(form) }}
 
         {{ form_widget(form) }}
-        {% if  "{{ form.wetSuite }}" == "true" %}
-            {{ form.sizeSuit }}
-        {% endif %}
+
 
         <button type="submit" class="btn btn-primary">Je plonge</button>
         {{ form_end(form) }}

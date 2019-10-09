@@ -14,7 +14,7 @@
             <P>{{diving.location }}</P>
             <p>{{ diving.description }}</p>
         </div>
-
+        <button type="button" class="btn btn-success" ><a href={{ path('reservation_create', {'id': diving.id}) }}> Je plonge !!!</a></button>
     </div>
 
 {% endblock %}

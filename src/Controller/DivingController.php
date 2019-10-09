@@ -22,9 +22,12 @@ class DivingController extends AbstractController
     public function index(DivingRepository $repo)
     {
         $diving = $repo->findAll();
+        $nbDiving=count($diving);
+        $tabNbDiving[]=$nbDiving;
 
         return $this->render('diving/index.html.twig', [
-            'diving'=> $diving
+            'diving'=> $diving,
+            'tabNbDiving' => $tabNbDiving
         ]);
     }
 
@@ -77,7 +80,7 @@ class DivingController extends AbstractController
     /**
      * Affiche une plongée
      *
-     * @Route("diving/{id}", name="diving_show")
+     * @Route("listediving/{id}", name="listediving_show")
      *
      * @return Response
      */

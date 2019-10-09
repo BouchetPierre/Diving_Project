@@ -23,7 +23,8 @@ class ReservationType extends AbstractType
                     'XL' => 'XL',
                     'XXL' => 'XXL',
                 ],  'expanded' => true,
-                'multiple' => false
+                'multiple' => false,
+                'required'   => false,
                 ])
         ;
     }

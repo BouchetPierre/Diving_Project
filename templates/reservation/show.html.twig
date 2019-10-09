@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des participants {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+        <button type="button" class="btn btn-success" ><a href="javascript:history.go(-1)">Retour</a></button>
+    </div>
+    <div class="raw">
+        <div class="col">
+            <div class="alert alert_light">
+                <h2>Liste des participants</h2>
+                <dl class="raw"></dl>
+                {% for reservation in reservation %}
+                <dt class="col-md-4">Numéro</dt>
+                <dt class="col-md-8">{{ reservation.id }}</dt>
+                <dt class="col-md-4"></dt>
+                <dt class="col-md-8">{{ reservation.name }}</dt>
+                <dt class="col-md-8">{{ reservation.pseudo }}</dt>
+                <dt class="col-md-8">{{ reservation.firstName }}</dt>
+                <dt class="col-md-8">{{ reservation.levelDive }}</dt>
+
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

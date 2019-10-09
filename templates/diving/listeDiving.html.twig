@@ -4,9 +4,11 @@
 
 {% block body %}
     <div class="container">
-        <p>Il y a actuellement xxx plongées programmées</p>
+        <p>Bonjour {{ app.user.name }}</p>
         <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
         <button type="button" class="btn btn-success" ><a href="javascript:history.go(-1)">Retour</a></button>
+        <button type="button" class="btn btn-success" ><a href={{ path('member_reservation', {'id': app.user.id}) }}>Mon planning</a></button>
+        <button type="button" class="btn btn-success" ><a href="">J'ai une question !</a></button>
     </div>
     <div class="container bg-white" >
         <table class="table table-bordered table-striped">
@@ -16,7 +18,9 @@
                 <td>Description</td>
                 <td>Niveau Minimum</td>
                 <td>Nombre de places </td>
-                <td>Date</td>
+                <td>Liste des participants</td>
+                <td>Valisation</td>
+
 
             </tr>
             </thead>
@@ -28,6 +32,8 @@
                     <td>{{ diving.description }}</td>
                     <td>{{ diving.levelMin }}</td>
                     <td>{{ diving.places }}</td>
+                    <td><a href={{ path('reservation_div_members', {'id': diving.id}) }}>Liste des participants</a></td>
+                    <td><a href={{ path('listediving_show', {'id': diving.id}) }}> Je plonge !!!</a></td>
                 </tr>
                 </tbody>
             {% endfor %}

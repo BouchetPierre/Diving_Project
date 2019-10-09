@@ -4,10 +4,12 @@
 
 {% block body %}
     <div class="container">
-        <p>Il y a actuellement xxx plongées programmées</p>
+        <p>Il y a actuellement {{ tabNbDiving.0 }} plongées programmées</p>
         <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
         <button type="button" class="btn btn-success" ><a href={{ path("admin_index") }}>Retour</a></button>
-
+        <div>
+            <button type="button" class="btn btn-success" ><a href={{ path("diving_create") }}>Créer une nouvelle plongée</a></button>
+        </div>
     </div>
 
     <div class="container bg-white" >

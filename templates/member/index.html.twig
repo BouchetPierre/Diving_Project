@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="container" xmlns="http://www.w3.org/1999/html">
-        <p> Nous sommes actuellement xxx adhérents au Club de la Mer</p>
+        <p> Nous sommes actuellement {{ tabNbMember.0 }} adhérents au Club de la Mer</p>
         <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
         <button type="button" class="btn btn-success" ><a href={{ path("admin_index") }}>Retour</a></button>
     </div>

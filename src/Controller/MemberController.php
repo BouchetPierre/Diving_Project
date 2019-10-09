@@ -26,9 +26,12 @@ class MemberController extends AbstractController
     public function index(MemberRepository $repo)
     {
         $members = $repo->findAll();
+        $nbMember=count($members);
+        $tabNbMember[]=$nbMember;
 
         return $this->render('member/index.html.twig', [
             'members'=> $members,
+            'tabNbMember' => $tabNbMember
         ]);
     }
 
@@ -65,20 +68,7 @@ class MemberController extends AbstractController
         ]);
     }
 
-    /**
-     * Affiche un membre
-     *
-     * @Route("members/{pseudo}", name="member_show")
-     *
-     * @return Response
-     */
-    public function show($pseudo, MemberRepository $repo){
-        $member = $repo->findOneByPseudo($pseudo);
 
-        return $this->render('member/show.html.twig', [
-            'member' => $member
-        ]);
-    }
 
     /**
      * Modifier un Membre
@@ -132,6 +122,8 @@ class MemberController extends AbstractController
         return $this->redirectToRoute("members_index");
     }
 
+
+
     /**
      * Permet d'afficher et de gérer le formulaire de connexion
      *
@@ -172,6 +164,5 @@ class MemberController extends AbstractController
             'controller_name' => 'AdminController',
         ]);
     }
-
 
 }

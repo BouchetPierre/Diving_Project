@@ -42,7 +42,7 @@ class Diving
     private $levelMin;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Reservation", mappedBy="fkIdDiving", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Reservation", mappedBy="fkIdDiving", cascade={"persist", "remove"})
      */
     private $fkIdResa;
 

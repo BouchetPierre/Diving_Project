@@ -3,9 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Doctrine\ORM\Mapping\Table;
+use Doctrine\ORM\Mapping\UniqueConstraint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ReservationRepository")
+ * @Table(name="reservation",uniqueConstraints={@UniqueConstraint(name="resa_idx", columns={"fk_id_member_id", "fk_id_diving_id"})})
+ *
  */
 class Reservation
 {
@@ -17,12 +22,13 @@ class Reservation
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Member", inversedBy="kfIdResa", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Member", inversedBy="fkIdResa", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $fkIdMember;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Diving", inversedBy="fkIdResa", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Diving", inversedBy="fkIdResa", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $fkIdDiving;

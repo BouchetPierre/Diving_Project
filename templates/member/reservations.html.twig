@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon planning{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+        <button type="button" class="btn btn-success" ><a href="javascript:history.go(-1)">Retour</a></button>
+    </div>
+    <div class="container">
+        <h1>Mon planning</h1>
+        <div class="alert alert-info mt-5">
+            <p>Retrouver toute vos réservations passées et à venir</p>
+        </div>
+
+        {% for reservation in reservations %}
+            <div>
+                {{ reservation.id }}
+                {{ reservation.idM }}
+                {{ reservation.idD }}
+                {{ reservation.location }}
+                {{ reservation.date|date('d/m/Y') }}
+                <a href="{{path('reservation_delete', {'id': reservation.id}) }}">Supprimer</a>
+            </div>
+
+        {% endfor %}
+    </div>
+
+{% endblock %}
