@@ -21,6 +21,8 @@ class ReservationRepository extends ServiceEntityRepository
     }
 
      /**
+      * Les plongées en fonction du user
+      *
      * @return Reservation[] Returns an array of Reservation objects
      */
 
@@ -38,6 +40,8 @@ class ReservationRepository extends ServiceEntityRepository
 
 
     /**
+     * Les participants à une plongée définie
+     *
      * @return Reservation[] Returns an array of Reservation objects
      */
 
@@ -51,6 +55,25 @@ class ReservationRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
         ;
+
+    }
+
+    /**
+     * Les participants aux plongées
+     *
+     * @return Reservation[] Returns an array of Reservation objects
+     */
+
+    public function  findNbPlaceDiv()
+    {
+        return $this->createQueryBuilder('r')
+            ->select(  'rd.id')
+            ->orderBy('rd.id')
+            ->innerJoin('r.fkIdMember', 'rc', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdMember = rc.id' )
+            ->innerJoin('r.fkIdDiving', 'rd', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdDiving = rd.id' )
+            ->getQuery()
+            ->getResult()
+            ;
 
     }
 

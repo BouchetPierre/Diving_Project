@@ -19,6 +19,8 @@ class DivingRepository extends ServiceEntityRepository
         parent::__construct($registry, Diving::class);
     }
 
+
+
     // /**
     //  * @return Diving[] Returns an array of Diving objects
     //  */

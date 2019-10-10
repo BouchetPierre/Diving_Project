@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Diving;
 use App\Form\DivingType;
 use App\Repository\DivingRepository;
+use App\Repository\ReservationRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\DBAL\Types\DateType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,12 +38,15 @@ class DivingController extends AbstractController
      *
      * @Route("/listeDiving", name="diving_listeDiving")
      */
-    public function liste(DivingRepository $repo)
+    public function liste(DivingRepository $repo, ReservationRepository $nbPlce)
     {
         $diving = $repo->findAll();
+        $nbplace = $nbPlce->findNbPlaceDiv();
+        var_dump($nbplace);
 
         return $this->render('diving/listeDiving.html.twig', [
-            'diving'=> $diving
+            'diving'=> $diving,
+            'nbplace' => $nbplace
         ]);
     }
 

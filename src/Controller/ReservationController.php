@@ -36,7 +36,7 @@ class ReservationController extends AbstractController
             $user = $this->getUser();
             try {
                 $reservation->setFkIdMember($user)
-                    ->setFkIdDiving($diving);
+                            ->setFkIdDiving($diving);
 
                 $manager->persist($reservation);
                 $manager->flush();

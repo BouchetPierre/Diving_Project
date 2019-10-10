@@ -22,7 +22,7 @@ security:
             form_login:
                 login-path: account_login
                 check_path: account_login
-
+                default_target_path: diving_listeDiving
             logout:
                 path: account_logout
                 target: account_login

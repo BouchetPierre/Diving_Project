@@ -3,9 +3,13 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DivingRepository")
+ * @UniqueEntity(
+ *     fields={"date"},
+ *     message="il y a déjà une plongée de programmée à cette date !!!"
+ * )
  */
 class Diving
 {
