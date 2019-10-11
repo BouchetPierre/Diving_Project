@@ -3,54 +3,87 @@
 {% block title %}Liste des membres du Club de la Mer{% endblock %}
 
 {% block body %}
-    <div class="container" xmlns="http://www.w3.org/1999/html">
+    <div class="container">
+        <div class="row">
+            <div class="col-auto mr-auto align-middle">
+
+                <h4 class="mt-3 ">Bonjour {{app.user.pseudo}}</h4>
+            </div>
+            <div class="col-auto">
+                <nav class="navbar navbar-expand-lg navbar-light ">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse align-middle" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link text-white " href="javascript:history.go(-1)">Retour</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link text-white" href={{ path("members_create") }}>Créer un nouvel adhérent</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-warning" href={{ path('admin_index') }}>Menu ADMINISTRATEUR</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-auto mb-2">
+                <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+            </div>
+        </div>
+    </div>
+    <div class="container mt-2 mb-5">
+        <h2>Lite des adhérants</h2>
+    </div>
+    <div class="container mb-3">
         <p> Nous sommes actuellement {{ tabNbMember.0 }} adhérents au Club de la Mer</p>
-        <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
-        <button type="button" class="btn btn-success" ><a href={{ path("admin_index") }}>Retour</a></button>
-    </div>
-    <div>
-        <button type="button" class="btn btn-success" ><a href={{ path("members_create") }}>Créer un nouvel adhérent</a></button>
     </div>
 
-    <div class="container bg-white" >
-        <table class="table table-bordered table-striped">
-            <thead>
+    <div class="container " >
+        <table class="table table-striped">
+            <thead class="">
                 <tr>
-                    <td>Prénom</td>
-                    <td>Nom</td>
-                    <td>Pseudo</td>
-                    <td>Niveau</td>
-                    <td>Encadrant</td>
-                    <td>Téléphone</td>
-                    <td>Tél. Urgence</td>
-                    <td>Email</td>
-                    <td>Ville</td>
-                    <td>Modifier</td>
-                    <td>Supprimer</td>
-
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Niveau</th>
+                    <th scope="col">Encadrant</th>
+                    <th scope="col">Téléphone</th>
+                    <th scope="col">Tél. Urgence</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Modifier</th>
+                    <th scope="col">Supprimer</th>
                 </tr>
             </thead>
 
             {% for member in members %}
                 <tbody>
-                    <tr>
+                    <tr scope="row">
                         <td>{{ member.name }}</td>
                         <td>{{ member.firstName }}</td>
-                        <td>{{ member.userName }}</td>
                         <td>{{ member.levelDive }}</td>
                         <td>{{ member.instructor }}</td>
                         <td>{{ member.phone1 }}</td>
                         <td>{{ member.phone2 }}</td>
                         <td>{{ member.mail}}</td>
-                        <td>{{ member.city }}</td>
-                        <td><a href="{{path('member_edit', {'pseudo': member.pseudo}) }}">Modifier</a></td>
-                        <td><a href="{{path('member_delete', {'pseudo': member.pseudo}) }}">Supprimer</a></td>
+                        <td><a class="btn btn-warning btn  mt-2" href="{{path('member_edit', {'pseudo': member.pseudo}) }}">Modifier</a></td>
+                        <td><a class="btn btn-danger btn  mt-2" onclick="return confirm(`Etes vous sur de vouloir supprimer cet adhérant : {{ member.pseudo }} ?`)" href="{{path('member_delete', {'pseudo': member.pseudo}) }}">Supprimer</a></td>
                     </tr>
                 </tbody>
             {% endfor %}
         </table>
     </div>
-
-
-
+{% endblock %}
+{% block footer %}
+    <div class="container">
+        <div class="col align-self-end  align-items-end row justify-content-md-center">
+            <div class="row align-items-center">
+                <div class="col-auto ">
+                    <p>Copyright  -   2019    -    Pierre BOUCHET</p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

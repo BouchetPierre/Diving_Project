@@ -38,15 +38,13 @@ class DivingController extends AbstractController
      *
      * @Route("/listeDiving", name="diving_listeDiving")
      */
-    public function liste(DivingRepository $repo, ReservationRepository $nbPlce)
+    public function liste(DivingRepository $repo)
     {
         $diving = $repo->findAll();
-        $nbplace = $nbPlce->findNbPlaceDiv();
-        var_dump($nbplace);
 
         return $this->render('diving/listeDiving.html.twig', [
-            'diving'=> $diving,
-            'nbplace' => $nbplace
+            'diving'=> $diving
+
         ]);
     }
 

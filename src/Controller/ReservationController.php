@@ -34,7 +34,10 @@ class ReservationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $user = $this->getUser();
+
             try {
+
+                $diving->setPlaceResa(($diving->getPlaceResa())+1);
                 $reservation->setFkIdMember($user)
                             ->setFkIdDiving($diving);
 
@@ -88,6 +91,7 @@ class ReservationController extends AbstractController
 
         return $this->render('reservation/show.html.twig', [
             'reservation' => $reservation
+
         ]);
     }
 
@@ -103,6 +107,8 @@ class ReservationController extends AbstractController
      */
     public function delete(Reservation $reservation, ObjectManager $manager)
     {
+        $reservation->getFkIdDiving()->setPlaceResa(($reservation->getFkIdDiving()->getPlaceResa()-1));
+
         $manager->remove($reservation);
         $manager->flush();
 

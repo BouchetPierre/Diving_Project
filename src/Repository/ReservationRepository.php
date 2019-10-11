@@ -48,7 +48,7 @@ class ReservationRepository extends ServiceEntityRepository
     public function  findDivMember($id)
     {
         return $this->createQueryBuilder('r')
-            ->select('r.id', 'rc.name', 'rc.pseudo', 'rc.firstName', 'rc.levelDive')
+            ->select('r.id', 'rc.name', 'rc.pseudo', 'rc.firstName', 'rc.levelDive', 'rd.id as idD')
             ->Where('rd.id ='.$id)
             ->innerJoin('r.fkIdMember', 'rc', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdMember = rc.id' )
             ->innerJoin('r.fkIdDiving', 'rd', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdDiving = rd.id' )
@@ -58,24 +58,6 @@ class ReservationRepository extends ServiceEntityRepository
 
     }
 
-    /**
-     * Les participants aux plongées
-     *
-     * @return Reservation[] Returns an array of Reservation objects
-     */
-
-    public function  findNbPlaceDiv()
-    {
-        return $this->createQueryBuilder('r')
-            ->select(  'rd.id')
-            ->orderBy('rd.id')
-            ->innerJoin('r.fkIdMember', 'rc', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdMember = rc.id' )
-            ->innerJoin('r.fkIdDiving', 'rd', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdDiving = rd.id' )
-            ->getQuery()
-            ->getResult()
-            ;
-
-    }
 
     /*
     public function findOneBySomeField($value): ?Reservation

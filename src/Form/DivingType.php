@@ -23,6 +23,7 @@ class DivingType extends AbstractType
             ->add('places')
             ->add('levelMin',ChoiceType::class, [
                             'choices' => [
+                                'Debutant'=> 'Debutant',
                                 'N1' => 'N1',
                                 'N2' => 'N2',
                                 'N3' => 'N3',

@@ -6,25 +6,59 @@
 
 {% block body %}
     <div class="container">
-        <div class="container">
-            <h3>Bienvenue {{ app.user.name }} dans l'espace administrateur du site</h3>
-            <button type="button" class="btn btn-success" ><a href={{ path("diving_listeDiving") }}>Réserver une plongée</a></button>
-            <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
-        </div>
-        <div class="container Hero" >
+        <div class="row">
+            <div class="col-auto mr-auto align-middle">
 
-        </div>
-        <div class="container">
-            <div class="container">
-                <a href={{ path("members_index") }}><h3>Membres du club</h3></a>
+                <h4 class="mt-3 ">Bonjour {{app.user.pseudo}}</h4>
             </div>
-            <div class="container">
-                <a href={{ path("diving_index") }}><h3>Les plongées</h3></a>
+            <div class="col-auto">
+                <nav class="navbar navbar-expand-lg navbar-light ">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse align-middle" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link text-white " href="javascript:history.go(-1)">Retour</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white " href={{ path('diving_listeDiving') }}>Liste des plongées</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-
+            <div class="col-auto mb-2">
+                <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+            </div>
         </div>
-
-
+    </div>    
+    <div class="container mt-5 mb-5">
+        <h2>Bienvenue dans l'espace administrateur du site</h2>
+    </div>
+    <div>
+        <img src="/pictures/fond.jpg" alt="">
+    </div>
+    <div class="container mt-5">
+        <div class="row justify-content-around">
+            <div class="col-3">
+                <div class="position-absolute text-center">
+                    <img style="width:250px; height:250px;" src="/pictures/plongeurs.png" alt="">
+                </div>
+                <div class="position-relative mt-5 text-center">
+                <a class="nav-link text-white" href={{ path("members_index") }}><h3>Les membres du club</h3></a>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="position-absolute text-center">
+                    <img style="width:250px; height:250px;" src="/pictures/fish.png" alt="">
+                </div>
+                <div class="position-relative mt-5 text-center">
+                    <a class="nav-link text-white" href={{ path("diving_index") }}><h3>Les plongées</h3></a>
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endblock %}

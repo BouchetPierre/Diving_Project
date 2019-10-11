@@ -4,24 +4,64 @@
 
 {% block body %}
     <div class="container">
-        <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
-        <button type="button" class="btn btn-success" ><a href="javascript:history.go(-1)">Retour</a></button>
+        <div class="row">
+            <div class="col-auto mr-auto align-middle">
+
+                <h4 class="mt-3 ">Bonjour {{app.user.pseudo}}</h4>
+            </div>
+            <div class="col-auto">
+                <nav class="navbar navbar-expand-lg navbar-light ">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse align-middle" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link text-white " href="javascript:history.go(-1)">Retour</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white " href={{ path('member_reservation', {'id': app.user.id}) }}>Mon planning</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white " href="">J'ai une question !</a>
+                            </li>
+                            {% if is_granted('ROLE_ADMIN') %}
+                                <li class="nav-item">
+                                    <a class="nav-link text-warning" href={{ path('admin_index') }}>Menu ADMINISTRATEUR</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-auto mb-2">
+                <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+            </div>
+        </div>
     </div>
-    <div class="raw">
+    <div class="container raw">
         <div class="col">
             <div class="alert alert_light">
                 <h2>Liste des participants</h2>
-                <dl class="raw"></dl>
-                {% for reservation in reservation %}
-                <dt class="col-md-4">Numéro</dt>
-                <dt class="col-md-8">{{ reservation.id }}</dt>
-                <dt class="col-md-4"></dt>
-                <dt class="col-md-8">{{ reservation.name }}</dt>
-                <dt class="col-md-8">{{ reservation.pseudo }}</dt>
-                <dt class="col-md-8">{{ reservation.firstName }}</dt>
-                <dt class="col-md-8">{{ reservation.levelDive }}</dt>
+                <div class="container border mb-5 mt-5 pt-3">
 
-                {% endfor %}
+                    {% for reservation in reservation %}
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm">
+                            <p>{{ reservation.name }} {{ reservation.firstName }}</p>
+                        </div>
+                        <div class="col-sm">
+                          <p>alias  "{{ reservation.pseudo }}"</p>
+                        </div>
+                        <div class="col-sm">
+                            <p>niveau: {{ reservation.levelDive }}</p>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
 

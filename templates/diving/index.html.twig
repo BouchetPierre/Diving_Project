@@ -3,43 +3,100 @@
 {% block title %}Liste des plongées du Club de la Mer{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <p>Il y a actuellement {{ tabNbDiving.0 }} plongées programmées</p>
-        <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
-        <button type="button" class="btn btn-success" ><a href={{ path("admin_index") }}>Retour</a></button>
-        <div>
-            <button type="button" class="btn btn-success" ><a href={{ path("diving_create") }}>Créer une nouvelle plongée</a></button>
+   <div class="container">
+        <div class="row">
+            <div class="col-auto mr-auto align-middle">
+
+                <h4 class="mt-3 ">Bonjour {{app.user.pseudo}}</h4>
+            </div>
+            <div class="col-auto">
+                <nav class="navbar navbar-expand-lg navbar-light ">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse align-middle" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link text-white " href="javascript:history.go(-1)">Retour</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white " href={{ path("diving_create") }}>Créer une nouvelle plongée</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-warning" href={{ path('admin_index') }}>Menu ADMINISTRATEUR</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-auto mb-2">
+                <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+            </div>
         </div>
     </div>
-
-    <div class="container bg-white" >
-        <table class="table table-bordered table-striped">
-            <thead>
-            <tr>
-                <td>Lieu</td>
-                <td>Description</td>
-                <td>Niveau Minimum</td>
-                <td>Nombre de places </td>
-                <td>Date</td>
-
-            </tr>
-            </thead>
-
-            {% for diving in diving %}
-                <tbody>
-                <tr>
-                    <td>{{ diving.location }}</td>
-                    <td>{{ diving.description }}</td>
-                    <td>{{ diving.levelMin }}</td>
-                    <td>{{ diving.places }}</td>
-                    <td><a href={{path('diving_edit', {'id': diving.id}) }}>Modifier</a></td>
-                    <td><a href="{{path('diving_delete', {'id': diving.id}) }}">Supprimer</a></td>
-                </tr>
-                </tbody>
-            {% endfor %}
-        </table>
+    <div class="container mt-2 mb-5">
+        <h2>Lite des plongées</h2>
     </div>
 
+    <div class="container">
+        <p>Il y a actuellement {{ tabNbDiving.0 }} plongées programmées</p>
+    </div>
+    <div class="container " >
+        {% for diving in diving %}
+            <div class="container border mb-5 mt-5 ">
+                <div class="row justify-content-between">
+                    <div class="col-auto mb-3 mt-2">
+                        Date:   {{ diving.date|date('d/m/Y') }}
+                    </div>
+                    <div class="col-auto mb-3 mt-2">
+                        Plongée n° :  {{ diving.id }}
+                    </div>
+                    <div class="col-auto  mb-3 mt-2">
+                        Lieu:   {{ diving.location }}
+                    </div>
+                </div>
+                <div class="row justify-content-between">
+                    <div class="col-auto mb-2">
+                        Niveau minimum:   {{ diving.levelMin }}
+                    </div>
 
-
+                </div>
+                <div class="mt-3 dive">
+                    {{ diving.description }}
+                </div>
+                <div class="row justify-content-between">
+                    <div class="col-auto mb-5 mt-5">
+                        <div>
+                            Nombre de places:   {{ diving.places }}
+                        </div>
+                        {% if  (diving.places - diving.placeResa)>0%}
+                            <div class="mt-3">
+                                Nombre de places disponible:  {{ diving.places - diving.placeResa }}
+                            </div>
+                        {% else %}
+                            <div class="mt-3 text-warning">
+                                Pas de change, Le bateau est plein !!! Une prochaine fois !
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-auto mb-5 mt-5">
+                        <a class="btn btn-warning btn mr-5 mt-2" href={{path('diving_edit', {'id': diving.id}) }}>Modifier</a>
+                        <a class="btn btn-danger btn  mt-2" onclick="return confirm(`Etes vous sur de vouloir supprimer le plongée n°: {{ diving.id }} ?`)" href="{{path('diving_delete', {'id': diving.id}) }}">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+{% block footer %}
+<div class="container">
+    <div class="col align-self-end  align-items-end row justify-content-md-center">
+        <div class="row align-items-center">
+            <div class="col-auto ">
+                <p>Copyright  -   2019    -    Pierre BOUCHET</p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

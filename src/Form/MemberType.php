@@ -39,6 +39,7 @@ class MemberType extends AbstractType
 
             ->add('levelDive',ChoiceType::class, [
                                             'choices' => [
+                                                'Debutant'=> 'Debutant',
                                                 'N1' => 'N1',
                                                 'N2' => 'N2',
                                                 'N3' => 'N3',

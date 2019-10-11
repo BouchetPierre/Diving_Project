@@ -50,6 +50,11 @@ class Diving
      */
     private $fkIdResa;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $placeResa;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -128,6 +133,18 @@ class Diving
         if ($this !== $fkIdResa->getFkIdDiving()) {
             $fkIdResa->setFkIdDiving($this);
         }
+
+        return $this;
+    }
+
+    public function getPlaceResa(): ?int
+    {
+        return $this->placeResa;
+    }
+
+    public function setPlaceResa(?int $placeResa): self
+    {
+        $this->placeResa = $placeResa;
 
         return $this;
     }
