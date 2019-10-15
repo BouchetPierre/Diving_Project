@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon planning{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+
+        <div class="col-auto mb-2">
+            <img style="width:75px; height:75px;" src="/pictures/logodiving.gif">
+        </div>
+        <div>
+            Votre inscription est validée !!
+        </div>
+        <div>
+            Votre pseudo pour la connexion est  {{ member.pseudo }}
+        </div>
+        <div>
+            Votre mot de passe est {{ member.password }}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

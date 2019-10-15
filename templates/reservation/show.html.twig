@@ -26,21 +26,26 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white " href="">J'ai une question !</a>
                             </li>
+
                             {% if is_granted('ROLE_ADMIN') %}
                                 <li class="nav-item">
                                     <a class="nav-link text-warning" href={{ path('admin_index') }}>Menu ADMINISTRATEUR</a>
                                 </li>
                             {% endif %}
+                            <li class="nav-item">
+                                <a class="nav-link text-warning " href={{ path('account_logout') }}>Déconnexion</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
             </div>
             <div class="col-auto mb-2">
-                <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+                <img style="width:75px; height:75px;" src="/pictures/logodiving.gif">
             </div>
         </div>
     </div>
-    <div class="container raw">
+ <div class="container">
+    <div class=" row">
         <div class="col">
             <div class="alert alert_light">
                 <h2>Liste des participants</h2>
@@ -64,6 +69,6 @@
                 </div>
             </div>
         </div>
-
     </div>
+ </div>
 {% endblock %}

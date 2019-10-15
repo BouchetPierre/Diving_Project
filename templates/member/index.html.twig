@@ -26,12 +26,15 @@
                             <li class="nav-item">
                                 <a class="nav-link text-warning" href={{ path('admin_index') }}>Menu ADMINISTRATEUR</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-warning " href={{ path('account_logout') }}>Déconnexion</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
             </div>
             <div class="col-auto mb-2">
-                <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+                <img style="width:75px; height:75px;" src="/pictures/logodiving.gif">
             </div>
         </div>
     </div>
@@ -58,7 +61,7 @@
                 </tr>
             </thead>
 
-            {% for member in members %}
+            {% for member in members|sort %}
                 <tbody>
                     <tr scope="row">
                         <td>{{ member.name }}</td>
@@ -74,16 +77,6 @@
                 </tbody>
             {% endfor %}
         </table>
-    </div>
-{% endblock %}
-{% block footer %}
-    <div class="container">
-        <div class="col align-self-end  align-items-end row justify-content-md-center">
-            <div class="row align-items-center">
-                <div class="col-auto ">
-                    <p>Copyright  -   2019    -    Pierre BOUCHET</p>
-                </div>
-            </div>
-        </div>
+        <div class="pagination">{{ knp_pagination_render(members) }}</div>
     </div>
 {% endblock %}

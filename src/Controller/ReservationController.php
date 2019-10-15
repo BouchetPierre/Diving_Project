@@ -7,6 +7,7 @@ use App\Entity\Reservation;
 use App\Entity\Diving;
 use App\Form\MemberType;
 use App\Form\ReservationType;
+use App\Repository\DivingRepository;
 use App\Repository\ReservationRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use \Exception;
@@ -16,6 +17,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class ReservationController extends AbstractController
 {
@@ -118,5 +121,49 @@ class ReservationController extends AbstractController
         );
 
         return $this->redirectToRoute("diving_listeDiving");
+    }
+
+    /**
+     * Imprimer un pdf de la liste de palanquée
+     *
+     * @Route("listeDiving/reservation/pdf/{id}", name="liste_palanquee")
+     *
+     * @return Response
+     */
+    public function print($id, ReservationRepository $repo, DivingRepository $repoDive){
+
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+        $reservation = $repo->findDivMember($id);
+        $numDive[]=$id;
+
+        $infoDive=$repoDive->findOneBy($id);
+        dump($infoDive);
+        die;
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('reservation/listePalanquee.html.twig', [
+            'reservation' => $reservation,
+            'numDive' => $numDive,
+            'infoDive' => $infoDive
+        ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => false
+        ]);
+
     }
 }

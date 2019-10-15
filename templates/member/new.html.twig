@@ -20,26 +20,108 @@
                             <li class="nav-item active">
                                 <a class="nav-link text-white " href="javascript:history.go(-1)">Retour</a>
                             </li>
+
                             <li class="nav-item">
                                     <a class="nav-link text-warning" href={{ path('admin_index') }}>Menu ADMINISTRATEUR</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-warning " href={{ path('account_logout') }}>Déconnexion</a>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </div>
             <div class="col-auto mb-2">
-                <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+                <img style="width:75px; height:75px;" src="/pictures/logodiving.gif">
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container mb-5">
         <h2>Créer un nouvel adhérent</h2>
-
+    </div>
+    <div class="container">
         {{ form_start(form) }}
+        <div>
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-auto mb-3 mt-2">
+                        {{ form_widget(form.name) }}
+                    </div>
+                    <div class="col-auto mb-3 mt-2">
+                        {{ form_widget(form.firstName) }}
+                    </div>
+                    <div class="col-auto  mb-3 mt-2">
+                        {{ form_widget(form.pseudo) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto mb-3 mt-2">
+                {{ form_widget(form.birthdayDate) }}label
+            </div>
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-auto mb-3 mt-2">
+                        Genre:
+                        {{ form_widget(form.sex) }}
+                    </div>
+                    <div class="col-auto mb-3 mt-2">
+                        Niveau de plongée:
+                       {{ form_widget(form.levelDive) }}
+                    </div>
+                    <div class="col-auto  mb-3 mt-2">
+                        Niveau Moniteur
+                        {{ form_widget(form.instructor) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto mb-3 mt-2">
+                {{ form_widget(form.mail) }}
+            </div>
+            <div class="col-auto mb-3 mt-2">
+                {{ form_widget(form.address) }}
+            </div>
+            <div class="container ">
+                <div class="row justify-content-between">
+                    <div class="col-auto mb-3 mt-2">
+                        {{ form_widget(form.cp, {'attr':{'class':'form-control','placeholder': 'Code Postal'}}) }}
+                    </div>
+                    <div class="col-auto mb-3 mt-2">
+                        {{ form_widget(form.city) }}
+                    </div>
+                    <div class="col-auto mb-3 mt-2">
+                        {{ form_widget(form.phone1) }}
+                    </div>
+                    <div class="col-auto mb-3 mt-2">
+                        {{ form_widget(form.phone2) }}
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row justify-content-between">
+                    <div class="col-auto mb-3 mt-2">
+                        N° de license:
+                        {{ form_widget(form.numLicense) }}
+                    </div>
+                    <div class="col-auto mb-3 mt-2">
+                        {{ form_widget(form.boatLicense) }}
+                    </div>
+                    <div class="col-auto  mb-3 mt-2">
+                        Mot de passe
+                        {{ form_widget(form.password) }}
+                    </div>
+                </div>
+            </div>
 
-        {{ form_widget(form) }}
-
-        <button type="submit" class="btn btn-primary">Créer un nouvel adhérent</button>
+        </div>
+        <div class="col-auto  mb-3 mt-2">
+            <button type="submit" class="btn btn-primary">Créer un nouvel adhérent</button>
+        </div>
         {{ form_end(form) }}
     </div>
+
+
+
+
+
+
 {% endblock %}

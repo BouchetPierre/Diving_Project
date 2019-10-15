@@ -6,11 +6,13 @@ use App\Entity\Member;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\RadioType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 
 class MemberType extends AbstractType
 {
@@ -62,14 +64,16 @@ class MemberType extends AbstractType
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd'
                             ])
-            ->add('mail')
-            ->add('address')
+            ->add('mail',TextType::class, $this->getConfig(" ", "Adresse E-mail"))
+            ->add('address', TextType::class, $this->getConfig(" ", "Adresse postale"))
             ->add('cp')
-            ->add('city')
-            ->add('phone1')
-            ->add('phone2')
+            ->add('city',TextType::class, $this->getConfig(" ", "Ville"))
+            ->add('phone1',TextType::class, $this->getConfig(" ", "N° de téléphone"))
+            ->add('phone2',TextType::class, $this->getConfig(" ", "N° de téléphone URGENCE"))
             ->add('numLicense')
-            ->add('boatLicense')
+            ->add('boatLicense',CheckboxType::class, [
+                'label'    => 'Permis bateau',
+                'required' => false])
             ->add('password')
 
         ;

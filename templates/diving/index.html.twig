@@ -26,12 +26,15 @@
                             <li class="nav-item">
                                 <a class="nav-link text-warning" href={{ path('admin_index') }}>Menu ADMINISTRATEUR</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-warning " href={{ path('account_logout') }}>Déconnexion</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
             </div>
             <div class="col-auto mb-2">
-                <img style="width:75px; height:75px;" src="/pictures/divinglogo.jpg">
+                <img style="width:75px; height:75px;" src="/pictures/logodiving.gif">
             </div>
         </div>
     </div>
@@ -81,6 +84,7 @@
                         {% endif %}
                     </div>
                     <div class="col-auto mb-5 mt-5">
+                        <a class="btn btn-primary btn mr-5 mt-2" href={{path('liste_palanquee', {'id': diving.id}) }}>Imprimer la liste de palanquée</a>
                         <a class="btn btn-warning btn mr-5 mt-2" href={{path('diving_edit', {'id': diving.id}) }}>Modifier</a>
                         <a class="btn btn-danger btn  mt-2" onclick="return confirm(`Etes vous sur de vouloir supprimer le plongée n°: {{ diving.id }} ?`)" href="{{path('diving_delete', {'id': diving.id}) }}">Supprimer</a>
                     </div>

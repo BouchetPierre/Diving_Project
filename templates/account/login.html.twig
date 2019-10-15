@@ -13,7 +13,15 @@
                     <div class="col-md-3">&nbsp;</div>
                     <div class="col-md-6">
                         <div class="bg light py-3 px-3">
-                            <h1>Connectez vous !</h1>
+                            <div class="row justify-content-between">
+                                <div>
+                                    <h1>Connectez vous !</h1>
+                                </div>
+                                <div>
+                                    <img style="width:75px; height:75px;" src="/pictures/logodiving.gif">
+                               </div>
+                            </div>
+                        </div>
                             <form action="{{ path('account_login') }}" method="post">
                                 <div class="form-group">
                                     <label for="pseudo" >Votre Pseudo</label>
@@ -23,14 +31,18 @@
                                     <label for="password" >Mot de passe</label>
                                     <input type="password" name="_password" id="password" placeholder="Mot de passe..." class="form-control" required>
                                 </div>
+                                <input type="hidden" name="token" />
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-success">Je plonge !!!</button>
                                 </div>
                             </form>
                         </div>
+                    <div class="">
+                        <a  class="text-warning" href="">Mot de passe oublier !!!</a>
+                    </div>
                     <div>
                 </div>
             </div>
 
     </div>
-            {% endblock %}
+{% endblock %}
