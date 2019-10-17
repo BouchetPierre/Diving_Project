@@ -139,10 +139,8 @@ class ReservationController extends AbstractController
         $dompdf = new Dompdf($pdfOptions);
         $reservation = $repo->findDivMember($id);
         $numDive[]=$id;
+        $infoDive=$repoDive->findById($id);
 
-        $infoDive=$repoDive->findOneBy($id);
-        dump($infoDive);
-        die;
 
         // Retrieve the HTML generated in our twig file
         $html = $this->renderView('reservation/listePalanquee.html.twig', [

@@ -19,7 +19,15 @@ class DivingRepository extends ServiceEntityRepository
         parent::__construct($registry, Diving::class);
     }
 
-
+    public function findById($id)
+    {
+        return $this->createQueryBuilder('r')
+            ->select( 'r.location', 'r.description', 'r.date', 'r.levelMin')
+            ->Where('r.id='.$id)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 
     // /**
     //  * @return Diving[] Returns an array of Diving objects

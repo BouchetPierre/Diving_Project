@@ -18,11 +18,11 @@
         </div>
     </div>
     <div >
-       <div class=" mt-5">
+        <div class=" mt-5">
            <h6>Liste des participants de la plongee n°: {{ numDive.0 }}</h6>
-       </div>
-       <div>
-           <div >
+        </div>
+        <div class="row justify-content-between" >
+           <div class="col auto ">
              <table class="table table-striped" style="font-size: 0.7em; width: 300px;">
                 <thead class="">
                     <tr>
@@ -41,19 +41,259 @@
                 </tbody>
                 {% endfor %}
              </table>
-           </div>
-           <div>
-               <p>{{ infoDive.2|date('d/m/Y') }}</p>
-           </div>
-       </div>
-    </div>
-    <div>
-        <div style="border: solid; border-color:#222222; width: 300px; height: 300px">
-            <p> Détails de la plongée:</p>
-        </div>
-        <div>
+               <div>
+                   <div style="border: solid; border-color:#222222; width: 300px; height: 300px">
+                       <p> Détails de la plongée:</p>
+                   </div>
+                   <div>
 
+                   </div>
+               </div>
+           </div>
+           <div class="text-left" style="margin-left: 350px;">
+                {% for infoDive in infoDive %}
+                <div>
+                    <p style="font-size: 0.7em;">Directeur de plongée: _  &nbsp;&nbsp; _ &nbsp;&nbsp;  _ &nbsp;&nbsp;  _&nbsp;&nbsp;  _ </p>
+                </div>
+                <div>
+                   <p style="font-size: 0.7em;">Lieu de la plongée: {{ infoDive.location }}</p>
+               </div>
+               <div>
+                   <p style="font-size: 0.7em;">Date de la plongée: {{ infoDive.date|date('d/m/Y') }}</p>
+               </div>
+               <div>
+                   <table style="font-size: 0.7em;">
+                       <thead>
+                       <tr>
+                           <th style="border: 1px solid #333;" colspan="3">Palanquée n°1</th>
+                           <th style="border: 1px solid #333; width: 80px;" >Tech: </th>
+                           <th style="border: 1px solid #333; width: 80px;" >Explo: </th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <tr>
+                           <td style="border: 1px solid #333; width: 80px;">Nom</td>
+                           <td style="border: 1px solid #333; width: 80px;">Prénom</td>
+                           <td style="border: 1px solid #333;">Niveau</td>
+                           <td style="border: 1px solid #333;">Durée:</td>
+                           <td style="border: 1px solid #333;">Prof:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">HD:</td>
+                           <td style="border: 1px solid #333;">HS:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;" colspan="2">Deco:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Table - Ordi></td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">3 m:</td>
+                           <td style="border: 1px solid #333;">6 m:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">9 m:</td>
+                           <td style="border: 1px solid #333;">12 m:</td>
+                       </tr>
+                       </tbody>
+                   </table>
+                   <table style="font-size: 0.7em;" class="mt-2">
+                       <thead>
+                       <tr>
+                           <th style="border: 1px solid #333;" colspan="3">Palanquée n°2</th>
+                           <th style="border: 1px solid #333; width: 80px;" >Tech: </th>
+                           <th style="border: 1px solid #333; width: 80px;" >Explo: </th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <tr>
+                           <td style="border: 1px solid #333; width: 80px;">Nom</td>
+                           <td style="border: 1px solid #333; width: 80px;">Prénom</td>
+                           <td style="border: 1px solid #333;">Niveau</td>
+                           <td style="border: 1px solid #333;">Durée:</td>
+                           <td style="border: 1px solid #333;">Prof:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">HD:</td>
+                           <td style="border: 1px solid #333;">HS:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;" colspan="2">Deco:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Table - Ordi></td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">3 m:</td>
+                           <td style="border: 1px solid #333;">6 m:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">9 m:</td>
+                           <td style="border: 1px solid #333;">12 m:</td>
+                       </tr>
+                       </tbody>
+                   </table>
+                   <table style="font-size: 0.7em;" class="mt-2">
+                       <thead>
+                       <tr>
+                           <th style="border: 1px solid #333;" colspan="3">Palanquée n°3</th>
+                           <th style="border: 1px solid #333; width: 80px;" >Tech: </th>
+                           <th style="border: 1px solid #333; width: 80px;" >Explo: </th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <tr>
+                           <td style="border: 1px solid #333; width: 80px;">Nom</td>
+                           <td style="border: 1px solid #333; width: 80px;">Prénom</td>
+                           <td style="border: 1px solid #333;">Niveau</td>
+                           <td style="border: 1px solid #333;">Durée:</td>
+                           <td style="border: 1px solid #333;">Prof:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">HD:</td>
+                           <td style="border: 1px solid #333;">HS:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;" colspan="2">Deco:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Table - Ordi></td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">3 m:</td>
+                           <td style="border: 1px solid #333;">6 m:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">9 m:</td>
+                           <td style="border: 1px solid #333;">12 m:</td>
+                       </tr>
+                       </tbody>
+                   </table>
+                   <table style="font-size: 0.7em;" class="mt-2">
+                       <thead>
+                       <tr>
+                           <th style="border: 1px solid #333;" colspan="3">Palanquée n°4</th>
+                           <th style="border: 1px solid #333; width: 80px;" >Tech: </th>
+                           <th style="border: 1px solid #333; width: 80px;" >Explo: </th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <tr>
+                           <td style="border: 1px solid #333; width: 80px;">Nom</td>
+                           <td style="border: 1px solid #333; width: 80px;">Prénom</td>
+                           <td style="border: 1px solid #333;">Niveau</td>
+                           <td style="border: 1px solid #333;">Durée:</td>
+                           <td style="border: 1px solid #333;">Prof:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">HD:</td>
+                           <td style="border: 1px solid #333;">HS:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;" colspan="2">Deco:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Table - Ordi></td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">3 m:</td>
+                           <td style="border: 1px solid #333;">6 m:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">9 m:</td>
+                           <td style="border: 1px solid #333;">12 m:</td>
+                       </tr>
+                       </tbody>
+                   </table>
+                   <table style="font-size: 0.7em;" class="mt-2">
+                       <thead>
+                       <tr>
+                           <th style="border: 1px solid #333;" colspan="3">Palanquée n°5</th>
+                           <th style="border: 1px solid #333; width: 80px;" >Tech: </th>
+                           <th style="border: 1px solid #333; width: 80px;" >Explo: </th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <tr>
+                           <td style="border: 1px solid #333; width: 80px;">Nom</td>
+                           <td style="border: 1px solid #333; width: 80px;">Prénom</td>
+                           <td style="border: 1px solid #333;">Niveau</td>
+                           <td style="border: 1px solid #333;">Durée:</td>
+                           <td style="border: 1px solid #333;">Prof:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">HD:</td>
+                           <td style="border: 1px solid #333;">HS:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;" colspan="2">Deco:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Table - Ordi></td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">3 m:</td>
+                           <td style="border: 1px solid #333;">6 m:</td>
+                       </tr>
+                       <tr>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;"></td>
+                           <td style="border: 1px solid #333;">9 m:</td>
+                           <td style="border: 1px solid #333;">12 m:</td>
+                       </tr>
+                       </tbody>
+                   </table>
+               </div>
+               {% endfor %}
+           </div>
         </div>
     </div>
-
 {% endblock %}
+{% block footer %}
+{% endblock %}
+
+
