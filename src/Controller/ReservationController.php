@@ -19,12 +19,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class ReservationController extends AbstractController
 {
     /**
      * Voir les détails d'une plongée et valider sa participation
-     *
+     * @IsGranted("ROLE_USER")
      * @Route("/diving/{id}/reservation", name="reservation_create")
      * @return Response
      */
@@ -70,7 +71,7 @@ class ReservationController extends AbstractController
      * Permet d'afficher les plongées en fonction du user
      *
      * @Route ("members/reservations/{id}", name="member_reservation")
-     *
+     * @ISGranted("ROLE_USER")
      * @return Response
      */
     public function Reservations($id, ReservationRepository $repo)
@@ -86,7 +87,7 @@ class ReservationController extends AbstractController
      * Affiche les participants à une plongée
      *
      * @Route("listeDiving/reservation/{id}", name="reservation_div_members")
-     *
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
     public function show($id, ReservationRepository $repo){
@@ -102,7 +103,7 @@ class ReservationController extends AbstractController
      * Supprimer une reservation
      *
      * @Route("/reservations/{id}/delete", name="reservation_delete" )
-     *
+     * @IsGranted("ROLE_ADMIN")
      * @param Reservation $reservation
      * @param ObjectManager $manager
      * @return Response
@@ -127,7 +128,7 @@ class ReservationController extends AbstractController
      * Imprimer un pdf de la liste de palanquée
      *
      * @Route("listeDiving/reservation/pdf/{id}", name="liste_palanquee")
-     *
+     * @IsGranted("ROLE_ADMIN")
      * @return Response
      */
     public function print($id, ReservationRepository $repo, DivingRepository $repoDive){

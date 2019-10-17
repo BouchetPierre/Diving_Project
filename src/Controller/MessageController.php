@@ -10,12 +10,13 @@ use Swift_Mailer;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormTypeInterface;
 use http\Exception;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class MessageController extends AbstractController
 {
     /**
      * @Route("/message", name="message")
-     *
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
 
@@ -44,7 +45,7 @@ class MessageController extends AbstractController
 
 
 
-        $this->addFlash('success', 'Vous message a été envoyé !');
+        $this->addFlash('success', 'Votre message a été envoyé !');
 
           return $this->redirectToRoute('message');
         }

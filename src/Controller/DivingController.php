@@ -12,12 +12,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 class DivingController extends AbstractController
 {
     /**
      * Liste des plongées pour les administrateurs
-     *
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/diving", name="diving_index")
      */
     public function index(DivingRepository $repo)
@@ -37,6 +39,7 @@ class DivingController extends AbstractController
      * Liste des plongées
      *
      * @Route("/listeDiving", name="diving_listeDiving")
+     * @IsGranted("ROLE_USER")
      */
     public function liste(DivingRepository $repo)
     {
@@ -52,7 +55,7 @@ class DivingController extends AbstractController
      * Création d'une plongée
      *
      * @Route("/diving/new", name="diving_create")
-     *
+     * @IsGranted("ROLE_ADMIN")
      * @return Response
      */
     public function create(Request $request, ObjectManager $manager){
@@ -83,7 +86,7 @@ class DivingController extends AbstractController
      * Affiche une plongée
      *
      * @Route("listediving/{id}", name="listediving_show")
-     *
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
     public function show($id, DivingRepository $repo){
@@ -98,7 +101,7 @@ class DivingController extends AbstractController
      * Modifier une plongée
      *
      * @Route("diving/{id}/edit", name="diving_edit")
-     *
+     * @IsGranted("ROLE_ADMIN")
      * @return Response
      */
     public function edit(Diving $diving, Request $request, ObjectManager $manager){
@@ -127,13 +130,20 @@ class DivingController extends AbstractController
      * Supprimer une plongée
      *
      * @Route("/diving/{id}/delete", name="diving_delete" )
-     *
+     * @IsGranted("ROLE_ADMIN")
      * @param Diving $diving
      * @param ObjectManager $manager
+     * @param ReservationRepository $repo
+     * @param \Swift_Mailer $mailer
      * @return Response
      *
      */
-    public function delete(Diving $diving, ObjectManager $manager){
+    public function delete(Diving $diving, ObjectManager $manager, ReservationRepository $repo, $id, \Swift_Mailer $mailer){
+
+//        $reservation = $repo->findMailMemberDiv($id);
+//
+//        $this->notify($mailMember, $mailer);//send a mail to member for notify cancellation
+
         $manager->remove($diving);
         $manager->flush();
 
@@ -144,4 +154,19 @@ class DivingController extends AbstractController
 
         return $this->redirectToRoute("diving_index");
     }
+
+//    private function notify($mailMember, \Swift_Mailer $mailer, $id)
+//    {
+//        $message = (new \Swift_Message('Attention Annulation de plongée !!!'))
+//            ->setFrom('bouchet.hp@gmail.com')
+//            ->setTo($mailMember)
+//            ->setBody('Attention , nous avons dû annuler la plongée n°'.$id);
+//
+//        try {
+//            $mailer->send($message);
+//        }
+//        catch(\Exception $e) {
+//
+//        }
+//    }
 }

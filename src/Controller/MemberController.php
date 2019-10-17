@@ -28,7 +28,7 @@ class MemberController extends AbstractController
 {
     /**
      * Liste des membres
-     *
+     * @IsGranted("ROLE_USER")
      * @Route("/members", name="members_index")
      */
     public function index(MemberRepository $repo, Request $request, PaginatorInterface $paginator)
@@ -48,7 +48,7 @@ class MemberController extends AbstractController
     /**
      *
      * Création d'un membre
-     *
+     * @IsGranted("ROLE_ADMIN")
      * @Route("/members/new", name="members_create")
      *
      * @param Request $request
@@ -69,7 +69,7 @@ class MemberController extends AbstractController
             $password= $encoder->encodePassword($member, $member->getPassword());
             $member->setPassword($password);
 
-            $this->notify($member, $mailer);
+            $this->notify($member, $mailer);//send a mail to member for confirm account
             $manager->persist($member);
             $manager->flush();
 
@@ -86,11 +86,26 @@ class MemberController extends AbstractController
         ]);
     }
 
+    private function notify(Member $member, \Swift_Mailer $mailer)
+    {
+        $message = (new \Swift_Message('Activation de votre compte - Domain'))
+            ->setFrom('bouchet.hp@gmail.com')
+            ->setTo($member->getMail())
+            ->setBody($this->renderView('message/emailValidation.html.twig', [
+                'member' => $member
+            ]), 'text/html');
 
+        try {
+            $mailer->send($message);
+        }
+        catch(\Exception $e) {
+
+        }
+    }
 
     /**
      * Modifier un Membre
-     *
+     * @IsGranted("ROLE_ADMIN")
      * @Route("members/{pseudo}/edit", name="member_edit")
      *
      * @return Response
@@ -122,7 +137,7 @@ class MemberController extends AbstractController
      * Supprimer une membre
      *
      * @Route("/members/{pseudo}/delete", name="member_delete" )
-     *
+     * @IsGranted("ROLE_ADMIN")
      * @param Member $member
      * @param ObjectManager $manager
      * @return Response
@@ -186,6 +201,7 @@ class MemberController extends AbstractController
     /**
      * Permet de modifier le mot de passe
      * @Route("/members/password-update", name="update_password")
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
      public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder, ObjectManager $manager){
@@ -221,20 +237,5 @@ class MemberController extends AbstractController
       ]);
      }
 
-    private function notify(Member $member, \Swift_Mailer $mailer)
-    {
-        $message = (new \Swift_Message('Activation de votre compte - Domain'))
-            ->setFrom('bouchet.hp@gmail.com')
-            ->setTo($member->getMail())
-            ->setBody($this->renderView('message/emailValidation.html.twig', [
-                'member' => $member
-            ]), 'text/html');
 
-        try {
-            $mailer->send($message);
-        }
-        catch(\Exception $e) {
-            dump($e); die;
-        }
-    }
 }

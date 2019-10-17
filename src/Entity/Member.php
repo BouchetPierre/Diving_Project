@@ -30,16 +30,19 @@ class Member implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Renseigner ce champ !")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Renseigner ce champ !")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Renseigner ce champ !")
      *
      */
     private $pseudo;
@@ -139,7 +142,7 @@ class Member implements UserInterface
     {
         $this->name = $name;
 
-        return $this;
+        return $this;https://www.php.net/
     }
 
     public function getFirstName(): ?string
