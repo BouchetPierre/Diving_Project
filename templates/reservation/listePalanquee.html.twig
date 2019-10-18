@@ -39,15 +39,38 @@
                         <td>{{ reservation.levelDive }}</td>
                     </tr>
                 </tbody>
-                {% endfor %}
+                 {% endfor %}
              </table>
                <div>
                    <div style="border: solid; border-color:#222222; width: 300px; height: 300px">
                        <p> Détails de la plongée:</p>
-                   </div>
-                   <div>
+                       <div>
+                           <table class="table table-striped" style="font-size: 0.7em; width: 300px;">
+                               <thead class="">
+                               <tr>
+                                   <th scope="col">Prénom</th>
+                                   <th scope="col">Détendeur</th>
+                                   <th scope="col">Combinaison</th>
+                                   <th scope="col">Taille</th>
+                               </tr>
+                               </thead>
+                                {% for reservation in reservation %}
+                                    {% if reservation.regulator != null or reservation.wetSuit != null %}
+                                       <tbody>
+                                       <tr scope="row" >
+                                           <td>{{ reservation.name }}</td>
+                                           <td>{{ reservation.regulator }}</td>
+                                           <td>{{ reservation.wetSuit }}</td>
+                                           <td>{{ reservation.sizeSuit }}</td>
+                                       </tr>
+                                       </tbody>
+                                    {% endif %}
+                               {% endfor %}
+                           </table>
 
+                       </div>
                    </div>
+
                </div>
            </div>
            <div class="text-left" style="margin-left: 350px;">

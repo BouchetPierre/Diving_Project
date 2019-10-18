@@ -48,7 +48,7 @@ class ReservationRepository extends ServiceEntityRepository
     public function  findDivMember($id)
     {
         return $this->createQueryBuilder('r')
-            ->select('r.id', 'rc.name', 'rc.pseudo', 'rc.firstName', 'rc.levelDive', 'rd.id as idD', 'rd.location', 'rd.date', 'rc.mail')
+            ->select('r.id', 'rc.name', 'rc.pseudo', 'rc.firstName', 'rc.levelDive', 'rd.id as idD', 'rd.location', 'rd.date', 'rc.mail', 'r.regulator', 'r.wetSuit', 'r.sizeSuit')
             ->Where('rd.id ='.$id)
             ->innerJoin('r.fkIdMember', 'rc', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdMember = rc.id' )
             ->innerJoin('r.fkIdDiving', 'rd', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdDiving = rd.id' )
