@@ -41,12 +41,15 @@ class DivingController extends AbstractController
      * @Route("/listeDiving", name="diving_listeDiving")
      * @IsGranted("ROLE_USER")
      */
-    public function liste(DivingRepository $repo)
+    public function liste(DivingRepository $repo, ReservationRepository $repoResa)
     {
         $diving = $repo->findAll();
+        $id = $this->getUser()->getId();
+        $reservations = $repoResa->findByUser($id);
 
         return $this->render('diving/listeDiving.html.twig', [
-            'diving'=> $diving
+            'diving'=> $diving,
+            'reservations'=>$reservations
 
         ]);
     }
@@ -135,14 +138,19 @@ class DivingController extends AbstractController
      * @param ObjectManager $manager
      * @param ReservationRepository $repo
      * @param \Swift_Mailer $mailer
+     *
      * @return Response
      *
      */
-    public function delete(Diving $diving, ObjectManager $manager, ReservationRepository $repo, $id, \Swift_Mailer $mailer){
+    public function delete($id, Diving $diving, ObjectManager $manager, ReservationRepository $repo, \Swift_Mailer $mailer){
 
-//        $reservation = $repo->findMailMemberDiv($id);
-//
-//        $this->notify($mailMember, $mailer);//send a mail to member for notify cancellation
+        $reservation = $repo->findMailMemberDiv($id);
+
+        foreach($reservation as $key => $val){
+            foreach ($val as $key2=> $val2){
+                $this->notify($val2, $mailer, $id);//send a mail to member for notify cancellation
+            }
+        }
 
         $manager->remove($diving);
         $manager->flush();
@@ -155,18 +163,18 @@ class DivingController extends AbstractController
         return $this->redirectToRoute("diving_index");
     }
 
-//    private function notify($mailMember, \Swift_Mailer $mailer, $id)
-//    {
-//        $message = (new \Swift_Message('Attention Annulation de plongée !!!'))
-//            ->setFrom('bouchet.hp@gmail.com')
-//            ->setTo($mailMember)
-//            ->setBody('Attention , nous avons dû annuler la plongée n°'.$id);
-//
-//        try {
-//            $mailer->send($message);
-//        }
-//        catch(\Exception $e) {
-//
-//        }
-//    }
+    private function notify($mailMember, \Swift_Mailer $mailer, $id) //function to send a mail to member for notify cancellation
+    {
+        $message = (new \Swift_Message('Attention Annulation de plongée !!!'))
+            ->setFrom('bouchet.hp@gmail.com')
+            ->setTo($mailMember)
+            ->setBody('Attention , nous avons dû annuler la plongée n°'.$id);
+
+        try {
+            $mailer->send($message);
+        }
+        catch(\Exception $e) {
+
+        }
+    }
 }

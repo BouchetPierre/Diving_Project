@@ -19,6 +19,16 @@ class MemberRepository extends ServiceEntityRepository
         parent::__construct($registry, Member::class);
     }
 
+
+    public function loadUserByUsername($user)
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.pseudo = :pseudo OR u.mail = :mail')
+            ->setParameter('pseudo', $user)
+            ->setParameter('mail', $user)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
     // /**
     //  * @return Member[] Returns an array of Member objects
     //  */

@@ -71,12 +71,19 @@
                     <div class="col-auto mb-2">
                         Niveau minimum:   {{ diving.levelMin }}
                     </div>
+                    {% for reservations in reservations %}
+                        {% if(reservations.idD == diving.id) %}
+                            <div class="clo-auto mb-2 text-warning">
+                                Vous êtes déjà inscrit !!
+                            </div>
+                        {% endif %}
+                    {% endfor %}
                     <div class="col-auto mb-2">
                         {% if diving.levelMin <= app.user.levelDive and (diving.places - diving.placeResa)>0 %}
-                        <img style="width:20px; height:20px;" src="/pictures/vert.png">
+                            <img style="width:20px; height:20px;" src="/pictures/vert.png">
                         {% else %}
-                        <img style="width:20px; height:20px;" src="/pictures/rouge.png">
-                         {% endif %}
+                            <img style="width:20px; height:20px;" src="/pictures/rouge.png">
+                        {% endif %}
                     </div>
                 </div>
                 <div class="mt-3 dive">

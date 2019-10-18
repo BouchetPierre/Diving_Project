@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connection au Club de la Mer{% endblock %}
+
+{% block body %}
+<div class="container-fluid vh-100">
+    <div class="container">
+        <div class="raw">
+            <div class="col-md-6">
+                <div class="bg light py-3 px-3">
+                    <div class="row justify-content-between">
+                        <div>
+                            <h1>Mot de passe oublié ?</h1>
+                        </div>
+                        <div>
+                            <img style="width:75px; height:75px;" src="/pictures/logodiving.gif">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                <h1>Renouvellement du mot de passe</h1>
+                {{form_start(form)}}
+                    {{form_row(form.Password.first)}}
+                    {{form_row(form.Password.second)}}
+                <button class=""  type="submit">Envoyer</button>
+                {{form_end(form)}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

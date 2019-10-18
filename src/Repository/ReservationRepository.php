@@ -58,6 +58,12 @@ class ReservationRepository extends ServiceEntityRepository
 
     }
 
+    /**
+     * Mail des participants à une plongée définie
+     *
+     * @return Reservation[] Returns an array of Reservation objects
+     */
+
     public function  findMailMemberDiv($id)
     {
         return $this->createQueryBuilder('r')

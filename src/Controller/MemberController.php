@@ -237,5 +237,4 @@ class MemberController extends AbstractController
       ]);
      }
 
-
 }

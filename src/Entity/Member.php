@@ -17,6 +17,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     fields={"name", "firstName"},
  *     message="Cet adhérent existe déjà !!!"
  * )
+ * @UniqueEntity(
+ *     fields={"mail"},
+ *     message="Ce amail existe déjà !!!"
+ * )
  *
  */
 class Member implements UserInterface
@@ -117,6 +121,52 @@ class Member implements UserInterface
      */
     private $fkIdResa;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime
+     */
+    private $passwordRequestedAt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $token;
+
+    /*
+     * Get passwordRequestedAt
+     */
+    public function getPasswordRequestedAt()
+    {
+        return $this->passwordRequestedAt;
+    }
+
+    /*
+     * Set passwordRequestedAt
+     */
+    public function setPasswordRequestedAt($passwordRequestedAt)
+    {
+        $this->passwordRequestedAt = $passwordRequestedAt;
+        return $this;
+    }
+
+    /*
+     * Get token
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /*
+     * Set token
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+        return $this;
+    }
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Role", mappedBy="users")
