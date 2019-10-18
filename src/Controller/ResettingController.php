@@ -14,7 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use App\Entity\Member;
 use App\Repository\MemberRepository;
 use App\Services\MailerService;
-
+use App\Form\ResettingType;
     /**
      * @Route("/renouvellement-mot-de-passe")
      */

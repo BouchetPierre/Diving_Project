@@ -42,7 +42,7 @@
         <h2>Lite des adhérants</h2>
     </div>
     <div class="container mb-3">
-        <p> Nous sommes actuellement {{ tabNbMember.0 }} adhérents au Club de la Mer</p>
+        <p> Nous sommes actuellement {{ total }} adhérents au Club de la Mer</p>
     </div>
 
     <div class="container " >
@@ -77,6 +77,20 @@
                 </tbody>
             {% endfor %}
         </table>
-        <div class="pagination">{{ knp_pagination_render(members) }}</div>
+        <div class="d-flex justify-content-center">
+            <ul class="pagination">
+                <li class="page-item {% if page ==1 %}disabled{% endif %}">
+                    <a class="page-link" href="{{ path('members_index', {'page':page -1}) }}">&laquo;</a>
+                </li>
+                {% for i in 1..pages %}
+                    <li class="page-item {% if page == i%} active {% endif %}">
+                        <a class="page-link" href="{{ path('members_index', {'page':i}) }}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+                <li class="page-item {% if page == pages %}disabled{% endif %}">
+                    <a class="page-link" href="{{ path('members_index', {'page': page +1}) }}">&raquo;</a>
+                </li>
+            </ul>
+        </div>
     </div>
 {% endblock %}

@@ -9,8 +9,6 @@ use App\Entity\InscriptionNotification;
 use App\Repository\MemberRepository;
 use Doctrine\Common\Annotations\Annotation;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\Tools\Pagination\Paginator;
-use Knp\Component\Pager\PaginatorInterface;
 use MongoDB\Driver\Manager;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,20 +26,22 @@ class MemberController extends AbstractController
 {
     /**
      * Liste des membres
-     * @IsGranted("ROLE_USER")
-     * @Route("/members", name="members_index")
+     * @IsGranted("ROLE_ADMIN")
+     * @Route("/members/{page}", name="members_index", requirements={"page": "\d+"})
      */
-    public function index(MemberRepository $repo, Request $request, PaginatorInterface $paginator)
+    public function index(MemberRepository $repo, $page =1)
     {
-        $membersTous = $repo->findBy(array(), array('name' => 'asc'));
-        $members = $paginator->paginate($membersTous, $request->query->get('page', 1), 6);
-        $nbMember=count($membersTous);
-        $tabNbMember[]=$nbMember;
+        $limit = 6;
+        $start = $page *  $limit - $limit;
+        $total = count($repo->findAll());
 
+        $pages = ceil($total / $limit);
 
-        return $this->render('member/index.html.twig', [
-            'members'=> $members,
-            'tabNbMember' => $tabNbMember
+          return $this->render('member/index.html.twig', [
+            'members'=> $repo->findBy([], ['firstName'=>'ASC'], $limit, $start),
+             'pages' => $pages,
+             'page' => $page,
+             'total'=> $total
         ]);
     }
 
