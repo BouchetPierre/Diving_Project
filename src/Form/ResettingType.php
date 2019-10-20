@@ -28,7 +28,7 @@ class ResettingType extends AbstractType
     {
         $resolver->setDefaults([
             // uncomment if you want to bind to a class
-            'data_class' => Menber::class,
+            'data_class' => Member::class,
         ]);
     }
 }

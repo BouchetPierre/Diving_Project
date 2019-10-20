@@ -1,6 +1,6 @@
 body{
     background-color: #3e91a3;
-    font-family: 'Chewy', cursive;
+    font-family: "DejaVu Sans";
     color: white;
 }
 
@@ -10,10 +10,4 @@ h1{
 .dive{
     font-family: "DejaVu Sans";
 
-}
-.pagination{
-    background-color: white;
-    width: 70px;
-    text-align: center;
-    position: center;
 }

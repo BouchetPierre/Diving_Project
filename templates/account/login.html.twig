@@ -15,14 +15,14 @@
                         <div class="bg light py-3 px-3">
                             <div class="row justify-content-between">
                                 <div>
-                                    <h1>Connectez vous !</h1>
+                                    <h2>Connectez vous !</h2>
                                 </div>
                                 <div>
                                     <img style="width:75px; height:75px;" src="/pictures/logodiving.gif">
                                </div>
                             </div>
                         </div>
-                            <form action="{{ path('account_login') }}" method="post">
+                            <form class="dive" action="{{ path('account_login') }}" method="post">
                                 <div class="form-group">
                                     <label for="pseudo" >Votre Pseudo</label>
                                     <input type="text" name="_username" id="speudo" class="form-control" placeholder="Pseudo..." required value="{{ username }}">
@@ -33,10 +33,10 @@
                                 </div>
                                 <input type="hidden" name="token" />
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-success">Je plonge !!!</button>
+                                    <button type="submit" class="btn btn-dark">Je plonge !!!</button>
                                 </div>
                                 <div class="">
-                                    <a  class="text-warning" href="{{ path('request_resetting') }}">Mot de passe oublier !!!</a>
+                                    <a  class="text-warning" href="{{ path('request_resetting') }}">Mot de passe oublié !!!</a>
                                 </div>
                             </form>
                         </div>

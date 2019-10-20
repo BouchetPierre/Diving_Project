@@ -15,6 +15,7 @@ use App\Entity\Member;
 use App\Repository\MemberRepository;
 use App\Services\MailerService;
 use App\Form\ResettingType;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
     /**
      * @Route("/renouvellement-mot-de-passe")
      */
@@ -92,7 +93,7 @@ class ResettingController extends AbstractController
         // le token date de plus de 10 minutes
         if ($member->getToken() === null || $token !== $member->getToken() || !$this->isRequestInTime($member->getPasswordRequestedAt()))
         {
-            throw new AccessDeniedHttpException();
+            //throw new AccessDeniedHttpException();
         }
 
         $form = $this->createForm(ResettingType::class, $member);
@@ -113,7 +114,7 @@ class ResettingController extends AbstractController
 
             $request->getSession()->getFlashBag()->add('success', "Votre mot de passe a été renouvelé.");
 
-            return $this->redirectToRoute('connexion');
+            return $this->redirectToRoute('account_login');
 
         }
 
