@@ -29,7 +29,10 @@ class DivingType extends AbstractType
                                 'N3' => 'N3',
                                 'N4' => 'N4'
                             ],  'expanded' => true,
-                            'multiple' => false]);                           ;
+                            'multiple' => false,
+                            'label_attr'=>[
+                                'class'=>'radio-inline'
+                            ] ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

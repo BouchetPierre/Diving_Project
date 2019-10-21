@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+<div class="bandeau">
     <div class="container-fluid vh-100 d-flex flex-column md-5 dive" >
             <div class="mx-auto md-5 logo" >
                 <img src="/pictures/divingHome.jpg">
@@ -21,8 +21,7 @@
             <div class="mx-auto d-flex align-items-end mb-4 mt-4" >
                 <a href="{{ path('account_login')}}"><img style="width:75px; height:75px;" src="/pictures/pictoDiving.gif"></a>
             </div>
-
-
     </div>
+</div>
 
 {% endblock %}

@@ -3,6 +3,7 @@
 {% block title %}Modification d'une plongée{% endblock %}
 
 {% block body %}
+<div class="bandeau">
     <div class="container">
         <div class="row">
             <div class="col-auto mr-auto align-middle">
@@ -38,14 +39,15 @@
             </div>
         </div>
     </div>
-    <div class="container">
+</div>
+    <div class="container text-secondary mt-3">
         <h2>Mofification d'une plongée</h2>
 
         {{ form_start(form) }}
 
         {{ form_widget(form) }}
 
-        <button type="submit" class="btn btn-primary">Valider les modifications</button>
+        <button type="submit" class="btn btn-primary">Valider</button>
         {{ form_end(form) }}
     </div>
 {% endblock %}

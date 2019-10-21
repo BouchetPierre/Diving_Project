@@ -58,7 +58,8 @@ class MemberType extends AbstractType
                                                 'MF2' => 'MF2',
                                                 'DP' => 'DP'
                                             ],  'expanded' => true,
-                                                'multiple' => false])
+                                                'multiple' => false,
+                                                ])
 
             ->add('birthdayDate', DateType::class, [
                 'widget' => 'single_text',

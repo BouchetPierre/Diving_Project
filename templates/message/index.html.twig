@@ -3,6 +3,7 @@
 {% block title %}Connection au Club de la Mer{% endblock %}
 
 {% block body %}
+<div class="bandeau">
 <div class="container">
     <div class="row">
         <div class="col-auto mr-auto align-middle">
@@ -23,13 +24,23 @@
                         <li class="nav-item">
                             <a class="nav-link text-white " href={{ path('member_reservation', {'id': app.user.id}) }}>Mon planning</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white " href={{ path('diving_listeDiving') }}>Liste des plongées</a>
+                        </li>
                          {% if is_granted('ROLE_ADMIN') %}
                             <li class="nav-item">
                                 <a class="nav-link text-warning" href={{ path('admin_index') }}>Menu ADMINISTRATEUR</a>
                             </li>
                         {% endif %}
-                        <li class="nav-item">
-                            <a class="nav-link text-warning " href={{ path('account_logout') }}>Déconnexion</a>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="adminDropdown">
+                                <i class="fas fa-edit fa-2x"></i>Connexion</a>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
+                                <a href="{{ path('update_password') }}" class="dropdown-item" >Modifier mon mot de passe</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="{{ path('account_logout') }}" class="dropdown-item">Déconnexion</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -40,10 +51,11 @@
         </div>
     </div>
 </div>
-<div class="container mb-5">
+</div>
+<div class="container mb-5 mt-3 text-secondary">
     <h2>Faites votre demande !</h2>
 </div>
-<div class="container-fluid vh-100">
+<div class="container-fluid vh-100 text-secondary">
     <div class="container">
         <div class="row">
             <div class="col-7 mx-auto">

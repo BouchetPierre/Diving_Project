@@ -3,6 +3,7 @@
 {% block title %}Liste des participants {% endblock %}
 
 {% block body %}
+ <div class="bandeau">
     <div class="container">
         <div class="row">
             <div class="col-auto mr-auto align-middle">
@@ -24,7 +25,7 @@
                                 <a class="nav-link text-white " href={{ path('member_reservation', {'id': app.user.id}) }}>Mon planning</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white " href="">J'ai une question !</a>
+                                <a class="nav-link text-white " href={{ path('message') }}>J'ai une question !</a>
                             </li>
 
                             {% if is_granted('ROLE_ADMIN') %}
@@ -32,8 +33,15 @@
                                     <a class="nav-link text-warning" href={{ path('admin_index') }}>Menu ADMINISTRATEUR</a>
                                 </li>
                             {% endif %}
-                            <li class="nav-item">
-                                <a class="nav-link text-warning " href={{ path('account_logout') }}>Déconnexion</a>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="adminDropdown">
+                                    <i class="fas fa-edit fa-2x"></i>Connexion</a>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
+                                    <a href="{{ path('update_password') }}" class="dropdown-item" >Modifier mon mot de passe</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="{{ path('account_logout') }}" class="dropdown-item">Déconnexion</a>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -44,15 +52,15 @@
             </div>
         </div>
     </div>
- <div class="container">
+ </div>
+   <div class="container text-secondary">
     <div class=" row">
         <div class="col">
             <div class="alert alert_light">
                 <h2>Liste des participants</h2>
                 <div class="container border mb-5 mt-5 pt-3">
-
                     {% for reservation in reservation %}
-                    <div class="container">
+                    <div class="container font-weight-bold ">
                       <div class="row">
                         <div class="col-sm">
                             <p>{{ reservation.name }} {{ reservation.firstName }}</p>

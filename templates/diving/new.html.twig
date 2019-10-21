@@ -3,6 +3,7 @@
 {% block title %}Création d'une nouvelle plongée{% endblock %}
 
 {% block body %}
+ <div class="bandeau">
     <div class="container">
         <div class="row">
             <div class="col-auto mr-auto align-middle">
@@ -35,14 +36,15 @@
             </div>
         </div>
     </div>
-    <div class="container">
+ </div>
+    <div class="container text-secondary mt-3">
         <h2>Créer une nouvelle plongée</h2>
 
         {{ form_start(form) }}
 
         {{ form_widget(form) }}
 
-        <button type="submit" class="btn btn-primary">Créer une nouvelle plongée</button>
+        <button type="submit" class="btn btn-primary">Créer la plongée</button>
         {{ form_end(form) }}
     </div>
 {% endblock %}

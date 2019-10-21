@@ -3,6 +3,7 @@
 {% block title %}Liste des membres du Club de la Mer{% endblock %}
 
 {% block body %}
+ <div class="bandeau">
     <div class="container">
         <div class="row">
             <div class="col-auto mr-auto align-middle">
@@ -38,10 +39,11 @@
             </div>
         </div>
     </div>
-    <div class="container mt-2 mb-5">
+ </div>
+    <div class="container mt-2 mb-5 text-secondary">
         <h2>Lite des adhérants</h2>
     </div>
-    <div class="container mb-3">
+    <div class="container mb-3 text-secondary">
         <p> Nous sommes actuellement {{ total }} adhérents au Club de la Mer</p>
     </div>
 
@@ -72,7 +74,7 @@
                         <td>{{ member.phone2 }}</td>
                         <td>{{ member.mail}}</td>
                         <td><a class="btn btn-warning btn  mt-2" href="{{path('member_edit', {'pseudo': member.pseudo}) }}">Modifier</a></td>
-                        <td><a class="btn btn-danger btn  mt-2" onclick="return confirm(`Etes vous sur de vouloir supprimer cet adhérant : {{ member.pseudo }} ?`)" href="{{path('member_delete', {'pseudo': member.pseudo}) }}">Supprimer</a></td>
+                        <td><a class="btn btn-danger btn  mt-2" onclick="return confirm(`Etes vous sur de vouloir supprimer cet adhérant : {{ member.pseudo }} ?`)" href="{{path('member_delete', {'pseudo': member.pseudo}) }}"><img style="width:25px; height:25px;" src="/pictures/bin.png"></a></td>
                     </tr>
                 </tbody>
             {% endfor %}

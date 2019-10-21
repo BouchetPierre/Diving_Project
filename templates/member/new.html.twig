@@ -3,6 +3,7 @@
 {% block title %}Création d'un nouveau membre{% endblock %}
 
 {% block body %}
+ <div class="bandeau">
     <div class="container">
         <div class="row">
             <div class="col-auto mr-auto align-middle">
@@ -36,10 +37,11 @@
             </div>
         </div>
     </div>
-    <div class="container mb-5">
+ </div>
+    <div class="container mb-3 mt-3 text-secondary">
         <h2>Créer un nouvel adhérent</h2>
     </div>
-    <div class="container">
+    <div class="container text-secondary">
         {{ form_start(form) }}
         <div>
             <div class="container">
@@ -55,11 +57,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-auto mb-3 mt-2">
-                {{ form_widget(form.birthdayDate) }}label
-            </div>
             <div class="container">
                 <div class="row justify-content-between">
+                    <div class="col-auto mb-3 mt-2">
+                        Date de naissance:
+                        {{ form_widget(form.birthdayDate) }}
+                    </div>
                     <div class="col-auto mb-3 mt-2">
                         Genre:
                         {{ form_widget(form.sex) }}
@@ -114,14 +117,9 @@
 
         </div>
         <div class="col-auto  mb-3 mt-2">
-            <button type="submit" class="btn btn-primary">Créer un nouvel adhérent</button>
+            <button type="submit" class="btn btn-primary">Valider</button>
         </div>
         {{ form_end(form) }}
     </div>
-
-
-
-
-
 
 {% endblock %}

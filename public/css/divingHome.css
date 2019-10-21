@@ -1,7 +1,7 @@
 body{
-    background-color: #3e91a3;
+
     font-family: "DejaVu Sans";
-    color: white;
+
 }
 
 h1{
@@ -10,4 +10,8 @@ h1{
 .dive{
     font-family: "DejaVu Sans";
 
+}
+.bandeau{
+    background-color: #3e91a3;
+    color: white;
 }
