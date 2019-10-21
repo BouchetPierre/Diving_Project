@@ -34,11 +34,11 @@ class MemberController extends AbstractController
         $limit = 6;
         $start = $page *  $limit - $limit;
         $total = count($repo->findAll());
-
         $pages = ceil($total / $limit);
+        $members = $repo->findBy([], ['firstName'=>'ASC'], $limit, $start);
 
           return $this->render('member/index.html.twig', [
-            'members'=> $repo->findBy([], ['firstName'=>'ASC'], $limit, $start),
+              'members'=> $members,
              'pages' => $pages,
              'page' => $page,
              'total'=> $total

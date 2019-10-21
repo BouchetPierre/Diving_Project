@@ -3,11 +3,10 @@
 {% block title %}Mon planning{% endblock %}
 
 {% block body %}
-<div class="bandeau">
-    <div class="container bg-white">
-        <div class="row " style="background-color: #3e91a3;">
+ <div class="bandeau">
+     <div class="container">
+         <div class="row">
             <div class="col-auto mr-auto align-middle">
-
                 <h4 class="mt-3 ">Bonjour {{app.user.pseudo}}</h4>
             </div>
             <div class="col-auto">
@@ -15,7 +14,6 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-
                     <div class="collapse navbar-collapse align-middle" id="navbarSupportedContent">
                         <ul class="navbar-nav mr-auto">
                             <li class="nav-item active">
@@ -27,7 +25,6 @@
                             <li class="nav-item">
                                 <a class="nav-link text-white " href={{ path('message') }}>J'ai une question !</a>
                             </li>
-
                             {% if is_granted('ROLE_ADMIN') %}
                                 <li class="nav-item">
                                     <a class="nav-link text-warning" href={{ path('admin_index') }}>Menu ADMINISTRATEUR</a>
@@ -36,7 +33,7 @@
                             <li class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="adminDropdown">
                                     <i class="fas fa-edit fa-2x"></i>Connexion</a>
-                                </a>
+
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
                                     <a href="{{ path('update_password') }}" class="dropdown-item" >Modifier mon mot de passe</a>
                                     <div class="dropdown-divider"></div>
@@ -53,40 +50,33 @@
         </div>
     </div>
 </div>
-    <div class=" bg-white text-secondary mt-2">
-        <h2 class="container pt-3">Mon planning</h2>
+<div class="bg-white text-secondary pt-2">
+        <div class="container mt-3 mb-3">
+            <h2 >Mon planning</h2>
+        </div>
         <div>
             <img src="/pictures/fond.jpg" alt="">
         </div>
-
+        <div class="container text-secondary dive">
         {% for reservation in reservations %}
-                <div class="container bg-white dive text-secondary border border-secondary mb-3 mt-3">
-                    <div class="row font-weight-bold" style="font-size:1.2em;">
-                        <div class="col-sm mt-3">
+                <div class="container bg-white dive text-secondary border border-secondary mb-3 mt-3 pr-5">
+                    <div class="row font-weight-bold justify-content-between" style="font-size:1.2em;">
+                        <div class="col-4 col-sm-6 col-md-4 mt-3">
                             <p>Le: {{ reservation.date|date('d/m/Y') }}</p>
                         </div>
-                        <div class="col-sm mt-3">
+                        <div class="col-lg-4 col-sm-6 col-md-4 mt-3">
                             <p>A:  {{ reservation.location }}</p>
                         </div>
-                        <div class="col-sm mt-2 mb-2">
+                        <div class="col_lg-3 mt-2  col-sm-6 col-md-3 mb-2">
                             <a class="btn btn-info btn active " href={{ path('reservation_div_members', {'id': reservation.idD}) }}>Liste des participants</a>
                         </div>
-                        <div class="col-sm mt-2 mb-2">
-                            <a class="btn btn-danger " href="{{path('reservation_delete', {'id': reservation.id}) }}"><img style="width:25px; height:25px;" src="/pictures/bin.png"></a>
+                        <div class="col-lg-1 mt-2  col-sm-6 col-md-1 mb-2">
+                            <a class="btn btn-danger " onclick="return confirm(`Etes vous sur de vouloir supprimer cette reservation ?`) "href="{{path('reservation_delete', {'id': reservation.id}) }}"><img style="width:25px; height:25px;" src="/pictures/bin.png"></a>
                         </div>
                     </div>
                 </div>
         {% endfor %}
-    </div>
-{% endblock %}
-{% block footer %}
-    <div class="bandeau fixed-bottom pt-2">
-        <div class="col align-self-end  align-items-end row justify-content-md-center">
-            <div class="row align-items-center">
-                <div class="col-auto ">
-                    <p>Copyright  -   2019    -    Pierre BOUCHET</p>
-                </div>
-            </div>
         </div>
-    </div>
+</div>
 {% endblock %}
+
