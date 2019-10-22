@@ -29,6 +29,8 @@ class MemberRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
+
+
     // /**
     //  * @return Member[] Returns an array of Member objects
     //  */
