@@ -97,10 +97,14 @@
             <div class="col-auto mb-3 mt-2">
              {{ form_row(form.regulator) }}
             </div>
-            <div class="col-auto mb-3 mt-2">
+            <div id="wetSuite" onClick="change()" class="col-auto mb-3 mt-2">
               {{ form_row(form.wetSuit) }}
             </div>
-            <div class="col-auto  mb-3 mt-2">
+            <script type="text/javascript">
+               console.log(document.getElementById("wetSuite"));
+               console.log('toto')
+            </script>
+            <div style="display: none" id="size" class="col-auto  mb-3 mt-2">
                 Taille de la combinaison:
                 {{ form_widget(form.sizeSuit) }}
             </div>

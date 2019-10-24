@@ -30,6 +30,7 @@ class ReservationType extends AbstractType
                 ],  'expanded' => true,
                 'multiple' => false,
                 'required'   => false,
+                'placeholder' => false,
                 'label_attr'=>[
                     'class'=>'radio-inline'
                 ] ])

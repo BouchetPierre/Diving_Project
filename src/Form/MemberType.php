@@ -51,7 +51,6 @@ class MemberType extends AbstractType
 
             ->add('instructor',ChoiceType::class, [
                                             'choices' => [
-                                                'Non'=> 'Non',
                                                 'E1' => 'E1',
                                                 'E2' => 'E2',
                                                 'MF1' => 'MF1',
@@ -59,6 +58,8 @@ class MemberType extends AbstractType
                                                 'DP' => 'DP'
                                             ],  'expanded' => true,
                                                 'multiple' => false,
+                                                'required'   => false,
+                                                'placeholder' => false
                                                 ])
 
             ->add('birthdayDate', DateType::class, [
