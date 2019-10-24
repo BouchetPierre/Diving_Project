@@ -117,7 +117,7 @@ class Member implements UserInterface
     private $boatLicense;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Reservation", mappedBy="fkIdMember", cascade={"persist", "remove"})
+     * @ORM\OneToMany(targetEntity="App\Entity\Reservation", mappedBy="fkIdMember", cascade={"persist"})
      */
     private $fkIdResa;
 
