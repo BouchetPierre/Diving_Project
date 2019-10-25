@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="54a94944-e21b-4d99-a4fe-9d2788f5616f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191009104450.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20191009104450.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +33,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/divingHome.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
+            <state relative-caret-position="1596">
               <caret line="94" selection-start-line="94" selection-end-line="94" />
             </state>
           </provider>
@@ -48,11 +48,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/home.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="42">
               <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191009104450.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
@@ -99,7 +108,6 @@
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/src/Entity/Diving.php" />
         <option value="$PROJECT_DIR$/src/Entity/Member.php" />
-        <option value="$PROJECT_DIR$/src/Migrations/Version20191009104450.php" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/config/bundles.php" />
         <option value="$PROJECT_DIR$/templates/account/login.html.twig" />
@@ -121,6 +129,7 @@
         <option value="$PROJECT_DIR$/public/css/divingHome.css" />
         <option value="$PROJECT_DIR$/templates/member/reservations.html.twig" />
         <option value="$PROJECT_DIR$/templates/home.html.twig" />
+        <option value="$PROJECT_DIR$/src/Migrations/Version20191009104450.php" />
       </list>
     </option>
   </component>
@@ -435,18 +444,18 @@
       <workItem from="1571749439484" duration="7039000" />
       <workItem from="1571827791689" duration="8900000" />
       <workItem from="1571922888987" duration="8125000" />
-      <workItem from="1571991256172" duration="5756000" />
+      <workItem from="1571991256172" duration="7024000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="361288000" />
+    <option name="totallyTimeSpent" value="362556000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="173" y="295" width="1682" height="789" extended-state="0" />
+    <frame x="223" y="117" width="1682" height="789" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28850856" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13569683" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -833,24 +842,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191009104450.php">
+    <entry file="file://$PROJECT_DIR$/templates/home.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="24" column="57" selection-start-line="24" selection-start-column="57" selection-end-line="24" selection-end-column="57" />
+        <state relative-caret-position="42">
+          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/divingHome.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
+        <state relative-caret-position="1596">
           <caret line="94" selection-start-line="94" selection-end-line="94" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/home.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/Migrations/Version20191009104450.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+        <state relative-caret-position="235">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
         </state>
       </provider>
     </entry>
