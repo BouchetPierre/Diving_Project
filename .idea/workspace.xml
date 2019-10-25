@@ -24,8 +24,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="78" column="59" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="59" />
+            <state relative-caret-position="228">
+              <caret line="81" column="6" lean-forward="true" selection-start-line="81" selection-start-column="6" selection-end-line="81" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -286,10 +286,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="223" />
-    <option name="y" value="117" />
-    <option name="width" value="1682" />
-    <option name="height" value="789" />
+    <option name="x" value="198" />
+    <option name="y" value="400" />
+    <option name="width" value="1707" />
+    <option name="height" value="506" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -443,18 +443,18 @@
       <workItem from="1571749439484" duration="7039000" />
       <workItem from="1571827791689" duration="8900000" />
       <workItem from="1571922888987" duration="8125000" />
-      <workItem from="1571991256172" duration="7882000" />
+      <workItem from="1571991256172" duration="8285000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="363414000" />
+    <option name="totallyTimeSpent" value="363817000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="223" y="117" width="1682" height="789" extended-state="0" />
+    <frame x="198" y="400" width="1707" height="506" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13569683" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13365443" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -857,8 +857,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="78" column="59" selection-start-line="78" selection-start-column="59" selection-end-line="78" selection-end-column="59" />
+        <state relative-caret-position="228">
+          <caret line="81" column="6" lean-forward="true" selection-start-line="81" selection-start-column="6" selection-end-line="81" selection-end-column="6" />
         </state>
       </provider>
     </entry>
