@@ -45,7 +45,7 @@
                 </nav>
             </div>
             <div class="col-auto mb-2">
-                <img style="width:75px; height:75px;" src="/pictures/logodiving.gif">
+                <img class="logo" src="/pictures/logodiving.gif">
             </div>
         </div>
     </div>
@@ -60,18 +60,14 @@
         </div>
         <div class="container text-secondary dives">
         {% for reservation in reservations %}
-                <div class="container bg-white dive text-secondary border border-secondary mb-3 mt-3 pr-5">
-                    <div class="row font-weight-bold justify-content-between" style="font-size:1.2em;">
-                        <div class="col-4 col-sm-6 col-md-4 mt-3">
+                <div class=" planning container bg-white dive text-secondary border border-secondary mb-3 mt-3 pr-5">
+                    <div class=" row font-weight-bold justify-content-between" style="font-size:1.2em;">
+                        <div class="col-4  mt-3 ">
                             <p>Le: {{ reservation.date|date('d/m/Y') }}</p>
-                        </div>
-                        <div class="col-lg-4 col-sm-6 col-md-4 mt-3">
                             <p>A:  {{ reservation.location }}</p>
                         </div>
-                        <div class="col_lg-3 mt-2  col-sm-6 col-md-3 mb-2">
+                        <div class="col_lg-8 mt-2  mb-2">
                             <a class="btn btn-info btn active " href={{ path('reservation_div_members', {'id': reservation.idD}) }}>Liste des participants</a>
-                        </div>
-                        <div class="col-lg-1 mt-2  col-md-1 mb-2">
                             <a class="btn btn-danger " onclick="return confirm(`Etes vous sur de vouloir supprimer cette reservation ?`) "href="{{path('reservation_delete', {'id': reservation.id}) }}"><img style="width:25px; height:25px;" src="/pictures/bin.png"></a>
                         </div>
                     </div>
