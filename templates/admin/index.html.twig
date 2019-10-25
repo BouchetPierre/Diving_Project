@@ -43,28 +43,29 @@
         <h2>Bienvenue dans l'espace administrateur du site</h2>
     </div>
     <div>
-        <img src="/pictures/fond.jpg" alt="">
+        <img class="img-fluid" src="/pictures/fond.jpg" alt="">
     </div>
     <div class="container mt-5 text-secondary">
         <div class="row justify-content-around">
-            <div class="col-3">
+            <div class="col-3 col-md-4 mb-5">
                 <div class="position-absolute text-center ">
                     <img style="width:250px; height:250px;" src="/pictures/plongeurs.png" alt="">
                 </div>
-                <div class="position-relative mt-5 text-center">
-                <a class="nav-link " href={{ path("members_index") }}><h3 class="font-weight-bold text-secondary">Les membres du club</h3></a>
+                <div class="position-relative mt-5 text-center" style="width:250px;">
+                <a class="nav-link " href={{ path("members_index") }}><h3 class="font-weight-bold text-warning bg-dark">Les adhérents</h3></a>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-3  col-md-4 mb-5">
                 <div class="position-absolute text-center">
                     <img style="width:250px; height:250px;" src="/pictures/fish.png" alt="">
                 </div>
-                <div class="position-relative mt-5 text-center">
-                    <a class="nav-link "  href={{ path("diving_index") }}><h3  class="font-weight-bold text-secondary">Les plongées</h3></a>
+                <div class="position-relative mt-5 text-center" style="width:250px;">
+                    <a class="nav-link "  href={{ path("diving_index") }}><h3  class="font-weight-bold text-warning bg-dark">Les plongées</h3></a>
                 </div>
             </div>
+        </div>
+        <div class="mt-5" style="height:150px;">
         </div>
     </div>
 
 {% endblock %}
-

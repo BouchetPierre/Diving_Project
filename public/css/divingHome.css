@@ -1,18 +1,50 @@
 body{
 
     font-family: "DejaVu Sans";
+    font-size: 100%;
 
 }
 
 h1{
     font-size: 4em;
 }
-.dive{
-    font-family: "DejaVu Sans";
 
-}
 .bandeau{
     background-color: #3e91a3;
     color: white;
     width: 100%;
+
+}
+.picto{
+  width:80px;
+  height:80px;
+}
+
+@media screen and (max-device-width: 600px) {
+  body{
+      font-size: 2.5em;
+  }
+  .btn{
+    font-size: 1.2em;
+  }
+  h4{
+    font-size: 0.8em;
+  }
+  h2{
+    font-size: 1.2em;
+  }
+  .dive{
+    font-size: 1.2em;
+  }
+  .dives{
+    font-size: 0.7em;
+  }
+  h1{
+      font-size: 3em;
+      margin-bottom: 300px;
+  }
+  .picto{
+    width:250px;
+    height:250px;
+  }
 }

@@ -46,7 +46,7 @@
         <p> Nous sommes actuellement {{ total }} adhérents au Club de la Mer</p>
     </div>
 
-    <div class="container dive bg-white text-secondary" >
+    <div class="container bg-white text-secondary" >
         <table class="table table-striped">
             <thead class="">
                 <tr>
@@ -78,6 +78,8 @@
                 </tbody>
             {% endfor %}
         </table>
+    </div>
+    <div class="container">
         <div class="d-flex justify-content-center">
             <ul class="pagination">
                 <li class="page-item {% if page ==1 %}disabled{% endif %}">
@@ -92,6 +94,8 @@
                     <a class="page-link" href="{{ path('members_index', {'page': page +1}) }}">&raquo;</a>
                 </li>
             </ul>
+          </div>
         </div>
-    </div>
+        <div class=" container mt-5">
+        </div>
 {% endblock %}

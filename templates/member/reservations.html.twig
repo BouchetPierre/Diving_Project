@@ -50,14 +50,15 @@
         </div>
     </div>
 </div>
+
 <div class="bg-white text-secondary pt-2">
         <div class="container mt-3 mb-3">
             <h2 >Mon planning</h2>
         </div>
         <div>
-            <img src="/pictures/fond.jpg" alt="">
+            <img  class="img-fluid" src="/pictures/fond.jpg" alt="">
         </div>
-        <div class="container text-secondary dive">
+        <div class="container text-secondary dives">
         {% for reservation in reservations %}
                 <div class="container bg-white dive text-secondary border border-secondary mb-3 mt-3 pr-5">
                     <div class="row font-weight-bold justify-content-between" style="font-size:1.2em;">
@@ -79,4 +80,3 @@
         </div>
 </div>
 {% endblock %}
-
