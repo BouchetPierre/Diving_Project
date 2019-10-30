@@ -12,16 +12,81 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body class="">
-    <style>body{cursor:url("{{ asset("/pictures/cursor.cur") }}"), default;} a{cursor:url("{{ asset("/pictures/cursor2.cur") }}"), default;}</style>
-        {% for label, messages in app.flashes %}
-            <div class="container">
-                <div class="alert alert-{{ label }}">
-                    {% for message in messages %}
-                            <p>{{ message }}</p>
-                    {% endfor %}
+    <!--<style>body{cursor:url("{{ asset("/pictures/cursor.cur") }}"), default;} a{cursor:url("{{ asset("/pictures/cursor2.cur") }}"), default;}</style>-->
+            {% for label, messages in app.flashes %}
+                <div class="container">
+                    <div class="alert alert-{{ label }}">
+                        {% for message in messages %}
+                                <p>{{ message }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% block header %}
+            <div class="bandeau">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-auto mr-auto align-middle">
+                            <h4 class="mt-3 ">Bonjour {{app.user.pseudo}}</h4>
+                        </div>
+                        <div class="col-auto">
+                            <nav class="navbar navbar-expand-lg navbar-light ">
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <div class="collapse navbar-collapse align-middle" id="navbarSupportedContent">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link text-white " href="javascript:history.go(-1)">Retour</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="adminDropdown">
+                                                <i class="fas fa-edit fa-2x"></i>Mes activités</a>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
+                                                <a class="dropdown-item" href={{ path('diving_listeDiving') }}>Liste des plongées</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href={{ path('member_reservation', {'id': app.user.id}) }}>Mon planning</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href={{ path('message') }}>J'ai une question !</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="adminDropdown">
+                                                <i class="fas fa-edit fa-2x"></i>Mon compte</a>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
+                                                <a href="{{ path('update_password') }}" class="dropdown-item" >Modifier mon mot de passe</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a href="{{ path('user_edit') }}" class="dropdown-item">Modifier mes infos</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a href="{{ path('account_logout') }}" class="dropdown-item">Déconnexion</a>
+                                            </div>
+                                        </li>
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <li class="nav-item dropdown">
+                                                <a href="#" class="nav-link dropdown-toggle text-warning" data-toggle="dropdown" id="adminDropdown">
+                                                    <i class="fas fa-edit fa-2x"></i>Menu ADMINISTRATEUR</a>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
+                                                    <a class="dropdown-item" href={{ path("admin_index") }}>Espace ADMINISTRATEUR</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href={{ path("diving_create") }}>Créer une plongée</a>
+                                                    <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href={{ path("members_create") }}>Créer un nouvel adhérent</a>
+                                                </div>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="col-auto mb-2">
+                            <img class="logo" src="/pictures/logodiving.gif">
+                        </div>
+                    </div>
                 </div>
             </div>
-        {% endfor %}
+        {% endblock %}
         {% block body %}
 
 

@@ -73,6 +73,7 @@ class MemberType extends AbstractType
             ->add('phone1',TextType::class, $this->getConfig(" ", "N° de téléphone"))
             ->add('phone2',TextType::class, $this->getConfig(" ", "N° de téléphone URGENCE"))
             ->add('numLicense')
+            ->add('ticketDive')
             ->add('boatLicense',CheckboxType::class, [
                 'label'    => 'Permis bateau',
                 'required' => false])

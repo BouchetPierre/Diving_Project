@@ -3,9 +3,8 @@
 {% block title %}Modification d'un adhérent{% endblock %}
 
 {% block body %}
-
     <div class="container mb-3 mt-3 text-secondary">
-        <h2>Modifier un adhérent</h2>
+        <h2>Modifier mes infos perso</h2>
     </div>
     <div class="container bg-white text-secondary dive">
         {{ form_start(form) }}
@@ -20,26 +19,6 @@
                     </div>
                     <div class="col-auto  mb-3 mt-2">
                         {{ form_widget(form.pseudo) }}
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row justify-content-between">
-                    <div class="col-auto mb-3 mt-2">
-                        Date de naissance
-                        {{ form_widget(form.birthdayDate) }}
-                    </div>
-                    <div class="col-auto mb-3 mt-2">
-                        Genre:
-                        {{ form_widget(form.sex) }}
-                    </div>
-                    <div class="col-auto mb-3 mt-2">
-                        Niveau de plongée:
-                        {{ form_widget(form.levelDive) }}
-                    </div>
-                    <div class="col-auto  mb-3 mt-2">
-                        Niveau Moniteur
-                        {{ form_widget(form.instructor) }}
                     </div>
                 </div>
             </div>
@@ -68,20 +47,8 @@
             <div class="container">
                 <div class="row justify-content-between">
                     <div class="col-auto mb-3 mt-2">
-                        N° de license:
-                        {{ form_widget(form.numLicense) }}
-                    </div>
-                    <div class="col-auto mb-3 mt-2">
                         Permis bateau:
                         {{ form_widget(form.boatLicense) }}
-                    </div>
-                    <div class="col-auto mb-3 mt-2">
-                        Tickets de plongée payés:
-                        {{ form_widget(form.ticketDive) }}
-                    </div>
-                    <div class="col-auto  mb-3 mt-2 d-none">
-                        Mot de passe
-                        {{ form_widget(form.password) }}
                     </div>
                 </div>
             </div>

@@ -173,6 +173,11 @@ class Member implements UserInterface
      */
     private $usersRoles;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $ticketDive;
+
     public function __construct()
     {
         $this->usersRoles = new ArrayCollection();
@@ -521,6 +526,18 @@ class Member implements UserInterface
             $this->usersRoles->removeElement($usersRole);
             $usersRole->removeUser($this);
         }
+
+        return $this;
+    }
+
+    public function getTicketDive(): ?int
+    {
+        return $this->ticketDive;
+    }
+
+    public function setTicketDive(?int $ticketDive): self
+    {
+        $this->ticketDive = $ticketDive;
 
         return $this;
     }

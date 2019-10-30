@@ -44,6 +44,7 @@ class ReservationController extends AbstractController
                 $diving->setPlaceResa(($diving->getPlaceResa())+1);
                 $reservation->setFkIdMember($user)
                             ->setFkIdDiving($diving);
+                $user->setTicketDive(($user->getTicketDive())-1);
 
                 $manager->persist($reservation);
                 $manager->flush();
@@ -92,9 +93,11 @@ class ReservationController extends AbstractController
      */
     public function show($id, ReservationRepository $repo){
         $reservation = $repo->findDivMember($id);
+        $nbMember=count($repo->findDivMember($id));
 
         return $this->render('reservation/show.html.twig', [
-            'reservation' => $reservation
+            'reservation' => $reservation,
+            'nbMember' => $nbMember
 
         ]);
     }

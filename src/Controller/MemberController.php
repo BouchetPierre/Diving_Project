@@ -6,6 +6,7 @@ use App\Entity\Member;
 use App\Entity\PasswordUpdate;
 use App\Form\MemberType;
 use App\Entity\InscriptionNotification;
+use App\Form\UserEditType;
 use App\Repository\MemberRepository;
 use Doctrine\Common\Annotations\Annotation;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -38,7 +39,7 @@ class MemberController extends AbstractController
         $members = $repo->findBy([], ['firstName'=>'ASC'], $limit, $start);
 
           return $this->render('member/index.html.twig', [
-              'members'=> $members,
+             'members'=> $members,
              'pages' => $pages,
              'page' => $page,
              'total'=> $total
@@ -128,6 +129,38 @@ class MemberController extends AbstractController
         }
 
         return $this->render('member/edit.html.twig',[
+            'form' =>$form->createView()
+        ]);
+    }
+
+    /**
+     * Modifier ses données personnelle
+     * @IsGranted("ROLE_USER")
+     * @Route("members/modif", name="user_edit")
+     *
+     * @return Response
+     */
+    public function userEdit(Request $request, ObjectManager $manager){
+
+        $user = $this->getUser();
+
+        $form = $this->createForm(UserEditType::class, $user);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $manager->persist($user);
+            $manager->flush();
+
+            $this->addFlash(
+                'success',
+                "Votre fiche a bien été modifiée !"
+            );
+
+            return $this->redirectToRoute('diving_listeDiving');
+        }
+
+        return $this->render('member/user_edit.html.twig',[
             'form' =>$form->createView()
         ]);
     }

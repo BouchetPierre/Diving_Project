@@ -150,6 +150,7 @@ class DivingController extends AbstractController
             foreach ($val as $key2=> $val2){
                 $this->notify($val2, $mailer, $id);//send a mail to member for notify cancellation
             }
+
         }
 
         $manager->remove($diving);
@@ -165,6 +166,7 @@ class DivingController extends AbstractController
 
     private function notify($mailMember, \Swift_Mailer $mailer, $id) //function to send a mail to member for notify cancellation
     {
+
         $message = (new \Swift_Message('Attention Annulation de plongée !!!'))
             ->setFrom('bouchet.hp@gmail.com')
             ->setTo($mailMember)
