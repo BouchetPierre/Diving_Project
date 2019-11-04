@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Diving;
+use App\Entity\Member;
 use App\Form\DivingType;
 use App\Repository\DivingRepository;
+use App\Repository\MemberRepository;
 use App\Repository\ReservationRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\DBAL\Types\DateType;
@@ -13,7 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-
+use App\Entity\Reservation;
 
 class DivingController extends AbstractController
 {
@@ -150,8 +152,13 @@ class DivingController extends AbstractController
             foreach ($val as $key2=> $val2){
                 $this->notify($val2, $mailer, $id);//send a mail to member for notify cancellation
             }
-
         }
+        $test = $diving->getLocation();
+
+
+        $member = $repo->findDivMember($id);
+
+
 
         $manager->remove($diving);
         $manager->flush();
@@ -163,6 +170,9 @@ class DivingController extends AbstractController
 
         return $this->redirectToRoute("diving_index");
     }
+
+
+
 
     private function notify($mailMember, \Swift_Mailer $mailer, $id) //function to send a mail to member for notify cancellation
     {

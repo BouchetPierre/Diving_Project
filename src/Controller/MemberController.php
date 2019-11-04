@@ -89,7 +89,7 @@ class MemberController extends AbstractController
 
     private function notify(Member $member, \Swift_Mailer $mailer)
     {
-        $message = (new \Swift_Message('Activation de votre compte - Domain'))
+        $message = (new \Swift_Message('Activation de votre compte - Club de la Mer'))
             ->setFrom('bouchet.hp@gmail.com')
             ->setTo($member->getMail())
             ->setBody($this->renderView('message/emailValidation.html.twig', [

@@ -1,6 +1,15 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Connexion au Club de la Mer{% endblock %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/divingHome.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="/pictures/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css?family=Chewy&display=swap" rel="stylesheet">
+    <title>{% block title %}Connexion au Club de la Mer{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body class="bandeau">
 
 {% block body %}
 <div class="container-fluid vh-100">
@@ -10,7 +19,7 @@
                 <div class="bg light py-3 px-3">
                     <div class="row justify-content-between">
                         <div>
-                            <h1>Mot de passe oublié ?</h1>
+                            <h2>Mot de passe oublié ?</h2>
                         </div>
                         <div>
                             <img class="logo" src="/pictures/logodiving.gif">
@@ -18,7 +27,7 @@
                     </div>
                 </div>
                 <div>
-                <h1>Renouvellement du mot de passe</h1>
+                <h3>Renouvellement du mot de passe</h3>
                 {{form_start(form)}}
                     {{form_row(form.Password.first)}}
                     {{form_row(form.Password.second)}}
@@ -30,3 +39,20 @@
     </div>
 </div>
 {% endblock %}
+{% block footer %}
+    <div class=" bandeau fixed-bottom pt-2 pb-2" style="height: 50px;">
+        <div class="col align-self-end  align-items-end row justify-content-md-center">
+            <div class="row align-items-center">
+                <div class="col-auto copy">
+                    <p>Copyright  -   2019    -    Pierre BOUCHET</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}{% endblock %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

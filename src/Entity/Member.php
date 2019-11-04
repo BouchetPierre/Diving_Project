@@ -17,10 +17,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     fields={"name", "firstName"},
  *     message="Cet adhérent existe déjà !!!"
  * )
- * @UniqueEntity(
- *     fields={"mail"},
- *     message="Ce amail existe déjà !!!"
- * )
  *
  */
 class Member implements UserInterface

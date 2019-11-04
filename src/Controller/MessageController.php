@@ -31,7 +31,7 @@ class MessageController extends AbstractController
     if ($form->isSubmitted() && $form->isValid()) {
         $contactFormData = $form->getData();
 
-        $message = (new \Swift_Message('You Got Mail!'))
+        $message = (new \Swift_Message("Vous avez une demande d'un adhérent!"))
                 ->setFrom($user->getMail())
                 ->setTo('bouchet.hp@gmail.com')
                 ->setBody($contactFormData['message'],'text/plain');

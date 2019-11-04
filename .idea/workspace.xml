@@ -2,143 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54a94944-e21b-4d99-a4fe-9d2788f5616f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/member/user_edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.test" beforeDir="false" afterPath="$PROJECT_DIR$/.env.test" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/diving_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/diving_project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CC Diving_project.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/CC Diving_project.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bootstrap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/cache.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/cache.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/debug.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/debug.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/easy_log_handler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/easy_log_handler.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/prod/doctrine.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/prod/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/prod/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/sensio_framework_extra.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/sensio_framework_extra.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/framework.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/framework.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/monolog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/monolog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/routing.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/routing.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/swiftmailer.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/swiftmailer.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/validator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/validator.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/test/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/web_profiler.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/translation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/translation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/validator.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/validator.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/annotations.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/annotations.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/dev/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/dev/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes/dev/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/dev/web_profiler.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/divingHome.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/divingHome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/CopyrightLogo.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/CopyrightLogo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/GreenFish.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/GreenFish.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/RedFish.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/RedFish.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/arrow.gif" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/arrow.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/bin.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/bin.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/cursor.cur" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/cursor.cur" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/cursor2.cur" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/cursor2.cur" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/divingHome.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/divingHome.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/divinglogo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/divinglogo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/favicon-16x16.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/favicon-16x16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/ffessm.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/ffessm.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/fish.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/fish.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/fond.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/fond.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/logodiving.gif" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/logodiving.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/photoplongeesite/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/photoplongeesite/1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/photoplongeesite/10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/photoplongeesite/10.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/photoplongeesite/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/photoplongeesite/2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/photoplongeesite/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/photoplongeesite/3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/photoplongeesite/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/photoplongeesite/4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/photoplongeesite/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/photoplongeesite/5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/photoplongeesite/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/photoplongeesite/6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/photoplongeesite/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/photoplongeesite/7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/photoplongeesite/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/photoplongeesite/8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/photoplongeesite/9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/photoplongeesite/9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/pictoDiving.gif" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/pictoDiving.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/pictoDiving.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/pictoDiving.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/plongeurs.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/plongeurs.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/pictures/print2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/pictures/print2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/DivingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DivingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MemberController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MemberController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/MessageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MessageController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReservationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ResettingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ResettingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/DivingFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/DivingFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/MemberFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/MemberFixtures.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Diving.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Diving.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Member.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Member.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/PasswordUpdate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/PasswordUpdate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Role.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/DivingType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/DivingType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/MemberType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MemberType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/MessageType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/MessageType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/PasswordUpdateType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PasswordUpdateType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ReservationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ReservationType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ResettingType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ResettingType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191004143604.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20191004143604.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191009104450.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20191009104450.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191011081338.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20191011081338.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20191018102755.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20191018102755.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/DivingRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/DivingRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/MemberRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/MemberRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/PasswordUpdateRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PasswordUpdateRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Repository/ReservationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ReservationRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/RoleRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/RoleRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/MailerService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/MailerService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/account/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/account/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/diving/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/diving/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/diving/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/diving/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/diving/listeDiving.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/diving/listeDiving.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/diving/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/diving/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/password.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/password.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/member/reservations.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/reservations.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/message/emailValidation.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/message/emailValidation.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/message/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/message/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/reservation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reservation/listePalanquee.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation/listePalanquee.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/reservation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resetting/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resetting/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resetting/mail.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resetting/mail.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resetting/request.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resetting/request.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/tests/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/translations/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/translations/.gitignore" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -353,7 +231,9 @@
       <workItem from="1571922888987" duration="8125000" />
       <workItem from="1571991256172" duration="8285000" />
       <workItem from="1572365948407" duration="2507000" />
-      <workItem from="1572421951063" duration="26406000" />
+      <workItem from="1572421951063" duration="27269000" />
+      <workItem from="1572508382897" duration="12760000" />
+      <workItem from="1572853837861" duration="8831000" />
     </task>
     <servers />
   </component>

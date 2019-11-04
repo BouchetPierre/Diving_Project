@@ -106,7 +106,7 @@ class ReservationController extends AbstractController
      * Supprimer une reservation
      *
      * @Route("/reservations/{id}/delete", name="reservation_delete" )
-     * @IsGranted("ROLE_ADMIN")
+     * @IsGranted("ROLE_USER")
      * @param Reservation $reservation
      * @param ObjectManager $manager
      * @return Response
@@ -116,6 +116,8 @@ class ReservationController extends AbstractController
     {
         $reservation->getFkIdDiving()->setPlaceResa(($reservation->getFkIdDiving()->getPlaceResa()-1));
 
+        $user= $this->getUser();
+        $user->setTicketDive(($user->getTicketDive())+1);
         $manager->remove($reservation);
         $manager->flush();
 
@@ -125,6 +127,32 @@ class ReservationController extends AbstractController
         );
 
         return $this->redirectToRoute("diving_listeDiving");
+    }
+
+
+    /**
+     * Menu Admin Supprimer une reservation sur la liste des participants
+     *
+     * @Route("/reservations/{id}/deleteMember", name="reservation_delete_Member" )
+     * @IsGranted("ROLE_ADMIN")
+     * @param Reservation $reservation
+     * @param ObjectManager $manager
+     * @return Response
+     *
+     */
+    public function deleteMembResa(Reservation $reservation, ObjectManager $manager)
+    {
+        $reservation->getFkIdDiving()->setPlaceResa(($reservation->getFkIdDiving()->getPlaceResa()-1));
+        $reservation->getFkIdMember()->setTicketDive(($reservation->getFkIdMember()->getTicketDive()+1));
+        $manager->remove($reservation);
+        $manager->flush();
+
+        $this->addFlash(
+            'success',
+            "la réservation a été annulée"
+        );
+
+        return $this->redirectToRoute("diving_index");
     }
 
     /**
