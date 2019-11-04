@@ -87,20 +87,6 @@ class DivingController extends AbstractController
         ]);
     }
 
-    /**
-     * Affiche une plongée
-     *
-     * @Route("listediving/{id}", name="listediving_show")
-     * @IsGranted("ROLE_USER")
-     * @return Response
-     */
-    public function show($id, DivingRepository $repo){
-        $diving = $repo->findOneById($id);
-
-        return $this->render('diving/show.html.twig', [
-            'diving' => $diving
-        ]);
-    }
 
     /**
      * Modifier une plongée
@@ -153,12 +139,11 @@ class DivingController extends AbstractController
                 $this->notify($val2, $mailer, $id);//send a mail to member for notify cancellation
             }
         }
-        $test = $diving->getLocation();
 
-
-        $member = $repo->findDivMember($id);
-
-
+        $resa = $repo->findDivMemberTicket($id);//incrémente  les tickets suite à annulation de plongée
+        foreach($resa as $res) {
+           $res->getfkIdMember()->setTicketDive(($res->getFkIdMember()->getTicketDive()+1));
+        }
 
         $manager->remove($diving);
         $manager->flush();

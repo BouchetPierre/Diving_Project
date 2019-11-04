@@ -34,7 +34,7 @@
                             <div class="container border border-secondary mb-2 font-weight-bold bg-warning ">
                                 <div class="row">
                                     <div class="col-sm mt-2  mb-2">
-                                        <p>{{ reservation.name }} {{ reservation.firstName }}</p>
+                                        <a href="{{ path('reservation_div_members_attente', {'id': reservation.id}) }}">{{ reservation.name }} {{ reservation.firstName }}</a>
                                     </div>
                                     <div class="col-sm mt-2  mb-2">
                                         <p>alias  "{{ reservation.pseudo }}"</p>

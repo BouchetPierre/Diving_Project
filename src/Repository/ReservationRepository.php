@@ -59,6 +59,23 @@ class ReservationRepository extends ServiceEntityRepository
     }
 
     /**
+     * Les participants à une plongée définie recherche ticket (pas de select = return un tableau d'objets)
+     *
+     * @return Reservation[] Returns an array of Reservation objects
+     */
+
+    public function  findDivMemberTicket($id)
+    {
+        return $this->createQueryBuilder('r')
+            ->Where('rd.id ='.$id)
+            ->innerJoin('r.fkIdMember', 'rc', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdMember = rc.id' )
+            ->innerJoin('r.fkIdDiving', 'rd', \Doctrine\ORM\Query\Expr\Join::WITH, 'r.fkIdDiving = rd.id' )
+            ->getQuery()
+            ->execute()
+            ;
+
+    }
+    /**
      * Mail des participants à une plongée définie
      *
      * @return Reservation[] Returns an array of Reservation objects

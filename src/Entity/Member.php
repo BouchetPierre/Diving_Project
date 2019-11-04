@@ -366,17 +366,17 @@ class Member implements UserInterface
 
     public function getKfIdResa(): ?Reservation
     {
-        return $this->kfIdResa;
+        return $this->fkIdResa;
     }
 
-    public function setKfIdResa(?Reservation $kfIdResa): self
+    public function setKfIdResa(?Reservation $fkIdResa): self
     {
-        $this->kfIdResa = $kfIdResa;
+        $this->fkIdResa = $fkIdResa;
 
         // set (or unset) the owning side of the relation if necessary
-        $newFkIdMember = $kfIdResa === null ? null : $this;
-        if ($newFkIdMember !== $kfIdResa->getFkIdMember()) {
-            $kfIdResa->setFkIdMember($newFkIdMember);
+        $newFkIdMember = $fkIdResa === null ? null : $this;
+        if ($newFkIdMember !== $fkIdResa->getFkIdMember()) {
+            $fkIdResa->setFkIdMember($newFkIdMember);
         }
 
         return $this;

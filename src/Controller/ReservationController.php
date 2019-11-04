@@ -155,6 +155,44 @@ class ReservationController extends AbstractController
         return $this->redirectToRoute("diving_index");
     }
 
+
+    /**
+     * Confirme une reservation sur liste d'attente
+     *
+     * @Route("listeDiving/reservation/confirme/{id}", name="reservation_div_members_attente")
+     * @IsGranted("ROLE_ADMIN")
+     * @return Response
+     */
+    public function confirmResa($id, ReservationRepository $repo, ObjectManager $manager, \Swift_Mailer $mailer){
+
+        $resa = $repo->findOneBy(array('id' => $id));
+        $idD= $resa->getFkIdDiving()->getId();
+
+        $mail = $resa->getFkIdMember()->getMail(); //send email for confirm booking
+        $this->notify($mail, $mailer, $idD);
+        $resa->getFkIdDiving()->setPlaces(($resa->getFkIdDiving()->getPlaces()+1));
+
+        $manager->persist($resa);
+        $manager->flush();
+        return $this->redirectToRoute('reservation_div_members', ['id' => $idD]);
+
+    }
+
+    private function notify($mail, \Swift_Mailer $mailer, $idD)
+    {
+        $message = (new \Swift_Message('Validation de participation'))
+            ->setFrom('bouchet.hp@gmail.com')
+            ->setTo($mail)
+            ->setBody('Votre participation à la plongée n:'.$idD.' est validée !!!');
+
+        try {
+            $mailer->send($message);
+        }
+        catch(\Exception $e) {
+
+        }
+    }
+
     /**
      * Imprimer un pdf de la liste de palanquée
      *
