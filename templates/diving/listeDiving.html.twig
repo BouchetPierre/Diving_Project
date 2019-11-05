@@ -8,7 +8,7 @@
         <div class="container ">
             <h2>Liste des plongées</h2>
         </div>
-        {% if app.user.ticketDive > 0 %}
+        {% if app.user.ticketDive >= 0 %}
             <div class="container">
                 Votre solde de tickets de plongée est de: {{ app.user.ticketDive }}
             </div>
@@ -40,6 +40,14 @@
                       <div class="row justify-content-between font-weight-bold" style="font-size:1.2em;">
                           <div class="col-auto mb-2">
                               Lieu:   {{ diving.location }}
+                          </div>
+                          <div class="col-auto mb-2">
+                              {% for reservations in reservations %}
+                                {% if diving.id == reservations.idD %}
+                                    <p class="text-warning">Vous êtes inscrit</p>
+
+                                {% endif %}
+                              {% endfor %}
                           </div>
                           <div class="col-auto mb-2">
                               {% if diving.levelMin <= app.user.levelDive %}
@@ -75,15 +83,21 @@
                       <div class="mb-2" >
                         {% if (diving.levelMin > app.user.levelDive) or (diving.places - diving.placeResa)<= -5 %}
 
-                        {% else %}
-                        <a class="btn btn-info btn active mt-2" href={{ path('reservation_create', {'id': diving.id}) }}> Je plonge !!!</a>
-
-                        {% endif %}
+                         {% else %}
+                             <a class="btn btn-info btn active mt-2 " href={{ path('reservation_create', {'id': diving.id}) }}> Je plonge !!!</a>
+                         {% endif %}
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+                {% block javascripts %}
+                <script type="text/javascript" language="javascript">
+                    let test=document.getElementsByClassName('valid');
+                    console.log(test);
+
+                </script>
+                {% endblock %}
             {% endfor %}
         </div>
 </div>

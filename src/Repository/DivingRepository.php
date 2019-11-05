@@ -30,5 +30,4 @@ class DivingRepository extends ServiceEntityRepository
     }
 
 
-
 }
