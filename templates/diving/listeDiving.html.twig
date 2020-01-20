@@ -70,6 +70,9 @@
                                     <div class="mt-3 text-warning font-weight-bold attente" style="font-size: 1.2em;">
                                       <p> Inscrivez vous sur la liste d'attente!</p>
                                     </div>
+                                    <div class="mt-3 text-warning font-weight-bold attente2" style="font-size: 1.2em; display:none;">
+                                      <p> Vous êtes sur la liste d'attente!</p>
+                                    </div>
                                 {% else %}
                                     <div class="mt-3 text-danger font-weight-bold" style="font-size: 1.2em;">
                                         OUPS ! Le bateau est plein !
@@ -101,15 +104,15 @@
       for(var i=0; i<cards.length; i++){
         var text = cards[i].querySelector('.text-success');
         var btn = cards[i].querySelector('.btval');
-        var attente = cards[i].querySelector('div.attente > p');
+        var attente = cards[i].querySelector('div.attente');
+        var attente2 = cards[i].querySelector('div.attente2');
         if (text && btn){
           btn.style.display = 'none';
         }
         if (text && attente) {
           attente.style.display = 'none';
-        //  attente.innerText.replace('Inscrivez vous sur la liste d\'attente!', ' ');
+          attente2.style.display = 'block';
         }
-
       }
 </script>
 {% endblock %}
