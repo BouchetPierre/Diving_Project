@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54a94944-e21b-4d99-a4fe-9d2788f5616f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/diving_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/diving_project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/DivingRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/DivingRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/diving/listeDiving.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/diving/listeDiving.html.twig" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,6 +142,11 @@
   </component>
   <component name="ProjectId" id="1Sume4vFbri3YQ1Wtp0N7zxPXOr" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -159,18 +164,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/pictures" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="StructureViewFactory">
     <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR" />
@@ -221,6 +214,8 @@
       <workItem from="1572508382897" duration="12760000" />
       <workItem from="1572853837861" duration="29489000" />
       <workItem from="1572939221142" duration="6677000" />
+      <workItem from="1582552191754" duration="6914000" />
+      <workItem from="1582616874119" duration="7997000" />
     </task>
     <servers />
   </component>
@@ -239,5 +234,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="610" y="407" key="com.intellij.ide.util.TipDialog" timestamp="1582616881399">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="610" y="407" key="com.intellij.ide.util.TipDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582616881399" />
   </component>
 </project>

@@ -66,12 +66,19 @@
                                     <div class="mt-3 font-weight-bold">
                                         Nombre de places disponibles:  {{ diving.places - diving.placeResa }}
                                     </div>
-                                {% elseif  (diving.places - diving.placeResa)<=0 and (diving.places - diving.placeResa)>-5%}
+                                {% elseif  (diving.places - diving.placeResa)<0 and (diving.places - diving.placeResa)>-5%}
                                     <div class="mt-3 text-warning font-weight-bold attente" style="font-size: 1.2em;">
                                       <p> Inscrivez vous sur la liste d'attente!</p>
                                     </div>
                                     <div class="mt-3 text-warning font-weight-bold attente2" style="font-size: 1.2em; display:none;">
                                       <p> Vous êtes sur la liste d'attente!</p>
+                                    </div>
+                                {% elseif  (diving.places - diving.placeResa)==0 and (diving.places - diving.placeResa)>-5%}
+                                    <div class="mt-3 text-warning font-weight-bold attente4" style="font-size: 1.2em;">
+                                        <p> Inscrivez vous sur la liste d'attente!</p>
+                                    </div>
+                                    <div class="mt-3 text-warning font-weight-bold attente3" style="font-size: 1.2em; display:none;">
+                                        <p> Vous êtes sur la liste d'attente!</p>
                                     </div>
                                 {% else %}
                                     <div class="mt-3 text-danger font-weight-bold" style="font-size: 1.2em;">
@@ -106,6 +113,7 @@
         var btn = cards[i].querySelector('.btval');
         var attente = cards[i].querySelector('div.attente');
         var attente2 = cards[i].querySelector('div.attente2');
+        var attente4 = cards[i].querySelector('div.attente4');
         if (text && btn){
           btn.style.display = 'none';
         }
@@ -113,6 +121,10 @@
           attente.style.display = 'none';
           attente2.style.display = 'block';
         }
+
+        if (text && attente4) {
+          attente4.style.display = 'none';
+          }
       }
 </script>
 {% endblock %}
