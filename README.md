@@ -9,6 +9,7 @@
 - Voir qui est inscrit aux différentes plongées.
 - Modifier les info perso
 - Poser une question aux admins
+
 #### Les Admin peuvent:
 - faire ce que les memebres font
 - Creer une fiche membre **(CRUD)**
