@@ -7,12 +7,9 @@
     <div class="container mt-2 mb-5 text-secondary">
         <h2>Liste des plongées</h2>
     </div>
-
-    <div class="container text-secondary">
-        <p>Il y a actuellement {{ tabNbDiving.0 }} plongées programmées</p>
-    </div>
     <div class="container " >
         {% for diving in diving %}
+            {% if date(diving.date) >= date('-7days') %}
             <div class="container bg-white text-secondary dive border border-secondary mb-5 mt-5 ">
                 <div class="row justify-content-between">
                     <div class="col-auto mb-3 mt-2 font-weight-bold" style="font-size:1.2em;">
@@ -59,7 +56,15 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         {% endfor %}
+        <div class="row justify-content-between">
+            <div class="col-auto mb-5">
+            </div>
+            <div class="col-auto mb-5">
+                <a class="btn btn-info btn active mr-5 mt-2" href= {{ 'indexAll' }} >Voir toutes les plongées passées</a>
+            </div>
+        </div>
     </div>
 {% endblock %}
 {% block footer %}

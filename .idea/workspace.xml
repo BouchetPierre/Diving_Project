@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54a94944-e21b-4d99-a4fe-9d2788f5616f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/diving_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/diving_project.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/diving/indexAll.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DivingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DivingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/DivingFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/DivingFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/DivingRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/DivingRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/diving/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/diving/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/diving/listeDiving.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/diving/listeDiving.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,6 +151,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="full.screen.before.presentation.mode" value="false" />
@@ -215,7 +219,9 @@
       <workItem from="1572853837861" duration="29489000" />
       <workItem from="1572939221142" duration="6677000" />
       <workItem from="1582552191754" duration="6914000" />
-      <workItem from="1582616874119" duration="7997000" />
+      <workItem from="1582616874119" duration="9701000" />
+      <workItem from="1582640283764" duration="618000" />
+      <workItem from="1582703566989" duration="11246000" />
     </task>
     <servers />
   </component>
@@ -236,9 +242,18 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="610" y="407" key="com.intellij.ide.util.TipDialog" timestamp="1582616881399">
-      <screen x="67" y="27" width="1853" height="1053" />
+    <state x="2483" y="390" key="com.intellij.ide.util.TipDialog" timestamp="1582703567942">
+      <screen x="1920" y="0" width="1920" height="1080" />
     </state>
+    <state x="2483" y="390" key="com.intellij.ide.util.TipDialog/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1582703567942" />
     <state x="610" y="407" key="com.intellij.ide.util.TipDialog/67.27.1853.1053/1920.0.1920.1080@67.27.1853.1053" timestamp="1582616881399" />
+    <state x="2466" y="143" width="683" height="806" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1582715558327">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2466" y="143" width="683" height="806" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1582715558327" />
+    <state x="2458" y="113" width="709" height="867" key="find.popup" timestamp="1582703665003">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2458" y="113" width="709" height="867" key="find.popup/67.27.1853.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1582703665003" />
   </component>
 </project>

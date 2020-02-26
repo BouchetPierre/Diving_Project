@@ -20,19 +20,28 @@ use App\Entity\Reservation;
 class DivingController extends AbstractController
 {
     /**
-     * Liste des plongées pour les administrateurs
+     * Liste des plongées pour les administrateurs (limite de temps)
      * @IsGranted("ROLE_ADMIN")
      * @Route("/diving", name="diving_index")
      */
     public function index(DivingRepository $repo)
     {
         $diving = $repo->findAll();
-        $nbDiving=count($diving);
-        $tabNbDiving[]=$nbDiving;
-
         return $this->render('diving/index.html.twig', [
-            'diving'=> $diving,
-            'tabNbDiving' => $tabNbDiving
+            'diving'=> $diving
+        ]);
+    }
+
+    /**
+     * Liste des= toutes les plongées pour les administrateurs
+     * @IsGranted("ROLE_ADMIN")
+     * @Route("/indexAll", name="indexAll")
+     */
+    public function indexAll(DivingRepository $repo)
+    {
+        $diving = $repo->findAll();
+        return $this->render('diving/indexAll.html.twig', [
+            'diving'=> $diving
         ]);
     }
 

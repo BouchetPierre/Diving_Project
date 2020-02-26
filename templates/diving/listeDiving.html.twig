@@ -20,87 +20,89 @@
         {% endif %}
         <div class="container text-secondary dive" >
             {% for diving in diving %}
-            <div class="container  mb-5 mt-5 bg-white ">
-              <div class="row justify-content-between border border-secondary">
-                <div class="col-12 col-md-12 col-xl-4 col-sm-12 col-lg-4" style="padding-left:0px; padding-right:0px;">
-                    <script type="text/javascript" language="javascript">
-                        document.write('<img style="width:100%; height:100%;" src="/pictures/photoplongeesite/'+ Math.round((Math.random()*9)+1)+ '.jpg" />');
-                    </script>
-                </div>
-                <div class="col-12 col-md-12 col-xl-8 col-sm-12 col-lg-8 cards">
-                  <div class="container ">
-                      <div class="row justify-content-between font-weight-bold" style="font-size:1.2em;">
-                          <div class="col-auto mb-3 mt-2">
-                            Date:   {{ diving.date|date('d/m/Y') }}
-                          </div>
-                          <div class="col-auto  mb-3 mt-2">
-                            Niveau minimum:   {{ diving.levelMin }}
-                          </div>
-                      </div>
-                      <div class="row justify-content-between font-weight-bold" style="font-size:1.2em;">
-                          <div class="col-auto mb-2">
-                              Lieu:   {{ diving.location }}
-                          </div>
-                          <div class="col-auto mb-2">
-                              {% for reservations in reservations %}
-                                {% if diving.id == reservations.idD %}
-                                    <p class="text-success">Vous êtes inscrit</p>
+                {% if date(diving.date) >= date('-7days') %}
+                    <div class="container  mb-5 mt-5 bg-white ">
+                      <div class="row justify-content-between border border-secondary">
+                        <div class="col-12 col-md-12 col-xl-4 col-sm-12 col-lg-4" style="padding-left:0px; padding-right:0px;">
+                            <script type="text/javascript" language="javascript">
+                                document.write('<img style="width:100%; height:100%;" src="/pictures/photoplongeesite/'+ Math.round((Math.random()*9)+1)+ '.jpg" />');
+                            </script>
+                        </div>
+                        <div class="col-12 col-md-12 col-xl-8 col-sm-12 col-lg-8 cards">
+                          <div class="container ">
+                              <div class="row justify-content-between font-weight-bold" style="font-size:1.2em;">
+                                  <div class="col-auto mb-3 mt-2">
+                                      Date:   {{ diving.date|date('d/m/Y') }}
+                                  </div>
+                                  <div class="col-auto  mb-3 mt-2">
+                                    Niveau minimum:   {{ diving.levelMin }}
+                                  </div>
+                              </div>
+                              <div class="row justify-content-between font-weight-bold" style="font-size:1.2em;">
+                                  <div class="col-auto mb-2">
+                                      Lieu:   {{ diving.location }}
+                                  </div>
+                                  <div class="col-auto mb-2">
+                                      {% for reservations in reservations %}
+                                        {% if diving.id == reservations.idD %}
+                                            <p class="text-success">Vous êtes inscrit</p>
 
-                                {% endif %}
-                              {% endfor %}
-                          </div>
-                          <div class="col-auto mb-2">
-                              {% if diving.levelMin <= app.user.levelDive %}
-                                  <img class="poisson" src="/pictures/GreenFish.png">
-                              {% else %}
-                                  <img class="poisson" src="/pictures/RedFish.png">
-                              {% endif %}
-                          </div>
-                      </div>
-                      <div class="mt-3 dive ">
-                          {{ diving.description }}
-                      </div>
-                      <div class="row justify-content-between">
-                            <div class="col-auto mt-5">
-                                {% if  (diving.places - diving.placeResa)>0%}
-                                    <div class="mt-3 font-weight-bold">
-                                        Nombre de places disponibles:  {{ diving.places - diving.placeResa }}
+                                        {% endif %}
+                                      {% endfor %}
+                                  </div>
+                                  <div class="col-auto mb-2">
+                                      {% if diving.levelMin <= app.user.levelDive %}
+                                          <img class="poisson" src="/pictures/GreenFish.png">
+                                      {% else %}
+                                          <img class="poisson" src="/pictures/RedFish.png">
+                                      {% endif %}
+                                  </div>
+                              </div>
+                              <div class="mt-3 dive ">
+                                  {{ diving.description }}
+                              </div>
+                              <div class="row justify-content-between">
+                                    <div class="col-auto mt-5">
+                                        {% if  (diving.places - diving.placeResa)>0%}
+                                            <div class="mt-3 font-weight-bold">
+                                                Nombre de places disponibles:  {{ diving.places - diving.placeResa }}
+                                            </div>
+                                        {% elseif  (diving.places - diving.placeResa)<0 and (diving.places - diving.placeResa)>-5%}
+                                            <div class="mt-3 text-warning font-weight-bold attente" style="font-size: 1.2em;">
+                                              <p> Inscrivez vous sur la liste d'attente!</p>
+                                            </div>
+                                            <div class="mt-3 text-warning font-weight-bold attente2" style="font-size: 1.2em; display:none;">
+                                              <p> Vous êtes sur la liste d'attente!</p>
+                                            </div>
+                                        {% elseif  (diving.places - diving.placeResa)==0 and (diving.places - diving.placeResa)>-5%}
+                                            <div class="mt-3 text-warning font-weight-bold attente4" style="font-size: 1.2em;">
+                                                <p> Inscrivez vous sur la liste d'attente!</p>
+                                            </div>
+                                            <div class="mt-3 text-warning font-weight-bold attente3" style="font-size: 1.2em; display:none;">
+                                                <p> Vous êtes sur la liste d'attente!</p>
+                                            </div>
+                                        {% else %}
+                                            <div class="mt-3 text-danger font-weight-bold" style="font-size: 1.2em;">
+                                                OUPS ! Le bateau est plein !
+                                            </div>
+                                         {% endif %}
                                     </div>
-                                {% elseif  (diving.places - diving.placeResa)<0 and (diving.places - diving.placeResa)>-5%}
-                                    <div class="mt-3 text-warning font-weight-bold attente" style="font-size: 1.2em;">
-                                      <p> Inscrivez vous sur la liste d'attente!</p>
+                                    <div class="col-auto mt-5">
+                                        <a class="btn btn-info btn active mt-2" href={{ path('reservation_div_members', {'id': diving.id}) }}>Liste des participants</a>
                                     </div>
-                                    <div class="mt-3 text-warning font-weight-bold attente2" style="font-size: 1.2em; display:none;">
-                                      <p> Vous êtes sur la liste d'attente!</p>
-                                    </div>
-                                {% elseif  (diving.places - diving.placeResa)==0 and (diving.places - diving.placeResa)>-5%}
-                                    <div class="mt-3 text-warning font-weight-bold attente4" style="font-size: 1.2em;">
-                                        <p> Inscrivez vous sur la liste d'attente!</p>
-                                    </div>
-                                    <div class="mt-3 text-warning font-weight-bold attente3" style="font-size: 1.2em; display:none;">
-                                        <p> Vous êtes sur la liste d'attente!</p>
-                                    </div>
-                                {% else %}
-                                    <div class="mt-3 text-danger font-weight-bold" style="font-size: 1.2em;">
-                                        OUPS ! Le bateau est plein !
-                                    </div>
+                              </div>
+                              <div class="mb-2" >
+                                {% if (diving.levelMin > app.user.levelDive) or (diving.places - diving.placeResa)<= -5 %}
+
+                                 {% else %}
+                                     <a class="btn btn-info btn active mt-2 btval " href={{ path('reservation_create', {'id': diving.id}) }}> Je plonge !!!</a>
                                  {% endif %}
+                              </div>
                             </div>
-                            <div class="col-auto mt-5">
-                                <a class="btn btn-info btn active mt-2" href={{ path('reservation_div_members', {'id': diving.id}) }}>Liste des participants</a>
-                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="mb-2" >
-                        {% if (diving.levelMin > app.user.levelDive) or (diving.places - diving.placeResa)<= -5 %}
-
-                         {% else %}
-                             <a class="btn btn-info btn active mt-2 btval " href={{ path('reservation_create', {'id': diving.id}) }}> Je plonge !!!</a>
-                         {% endif %}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                {%  endif %}
             {% endfor %}
         </div>
 </div>

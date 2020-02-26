@@ -8,8 +8,7 @@ use Doctrine\Common\Persistence\ManagerRegistry;
 
 /**
  * @method Diving|null find($id, $lockMode = null, $lockVersion = null)
- * @method Diving|null findOneBy(array $criteria, array $orderBy = null)
- * @method Diving[]    findAll()
+ * @method Diving|null findOneBy(array $criteria, array $orderBy = null) *
  * @method Diving[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class DivingRepository extends ServiceEntityRepository
@@ -27,6 +26,12 @@ class DivingRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult()
             ;
+    }
+
+    public function findAll()
+    {
+        return $this->findBy(array(), array('date'=> 'DESC'));
+
     }
 
 
