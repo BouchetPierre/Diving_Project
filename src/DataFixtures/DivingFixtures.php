@@ -18,7 +18,7 @@ class DivingFixtures extends Fixture
 
             $diving = new Diving();
             $description = $fakerDiv->paragraph(5);
-            $date = $fakerDiv->dateTimeBetween('now', '+2 years');
+            $date = $fakerDiv->date();
             $location = $fakerDiv->city;
 
             $dateDiving = new DateTime($date);
