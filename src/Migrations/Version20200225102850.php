@@ -23,8 +23,8 @@ final class Version20200225102850 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
       #  $this->addSql('ALTER TABLE reservation DROP INDEX UNIQ_42C84955307A609F, ADD INDEX IDX_42C84955307A609F (fk_id_diving_id)');
-        $this->addSql('ALTER TABLE reservation CHANGE fk_id_member_id fk_id_member_id INT NOT NULL');
-        $this->addSql('CREATE UNIQUE INDEX resa_idx ON reservation (fk_id_member_id, fk_id_diving_id)');
+      # $this->addSql('ALTER TABLE reservation CHANGE fk_id_member_id fk_id_member_id INT NOT NULL');
+      #  $this->addSql('CREATE UNIQUE INDEX resa_idx ON reservation (fk_id_member_id, fk_id_diving_id)');
     }
 
     public function down(Schema $schema) : void
