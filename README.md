@@ -7,6 +7,8 @@
 - S'incrire à une plongée (notifier un besoin de materiel)
 - Voir leur planning de résa
 - Voir qui est inscrit aux différentes plongées.
+- Demander un covoiturage
+- Poposer un covoiturage avec le nombre de places disponibles
 - Modifier les info perso
 - Poser une question aux admins
 
