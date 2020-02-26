@@ -52,6 +52,9 @@
     {{ form_start(form) }}
     <div class="container">
         <div class="row justify-content-between">
+            <div  class="col-auto  mb-5 mt-2">
+                <img class="col-auto" style="width:auto; height:50px;" src="/pictures/materiel.png">
+            </div>
             <div class="col-auto mb-3 mt-2">
              {{ form_row(form.regulator) }}
             </div>
@@ -62,14 +65,37 @@
                 Taille de la combinaison:
                 {{ form_widget(form.sizeSuit) }}
             </div>
-            <div class="col-auto  mb-5 mt-2">
-                <button type="submit" class="btn btn-primary">Valider ma participation</button>
+        </div>
+        <div class="row justify-content-between">
+            <div  class="col-auto  mb-5 mt-2">
+                <img class="col-auto " style="width:auto; height:50px;" src="/pictures/bus.png">
+            </div>
+            <div  class="col-auto  mb-5 mt-2">
+                {{ form_widget(form.needCar) }}
+            </div>
+            <div  class="col-auto  mb-5 mt-2">
+                {{ form_widget(form.driverCar) }}
+            </div>
+            <div  class="col-auto  mb-5 mt-2">
+                Nombre de places disponibles:
+                {{ form_widget(form.placeCar) }}
             </div>
         </div>
-        <div>
+        <div class="col-auto  mb-5 mt-2">
+            <button type="submit" class="btn btn-primary">Valider ma participation</button>
         </div>
     </div>
     {{ form_end(form) }}
+    <div class="container">
+        <div class="row justify-content-between">
+
+            <img class="col-auto mb-3 mt-2" style="width:auto; height:50px;" src="/pictures/icon-attention-png-5.png">
+
+            <div class="col-11 mb-3 mt-2">
+                Attention, en indiquant que vous avez besoin d'un transport ou en vous proposant comme conducteur vous acceptez que votre n° de portable soit communiqué
+            </div>
+        </div>
+    </div>
 </div>
 
 

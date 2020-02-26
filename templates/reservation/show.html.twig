@@ -12,7 +12,7 @@
                     {% for reservation in reservation %}
                         {% set counter = ( counter | default(0) ) + 1 %}
                         {% if counter <= reservation.places %}
-                            <div class="container border border-secondary mb-2 font-weight-bold ">
+                            <div class="container border border-secondary mb-2 font-weight-bold bg-light">
                               <div class="row">
                                 <div class="col-sm mt-2  mb-2">
                                     <p>{{ reservation.name }} {{ reservation.firstName }}</p>
@@ -23,18 +23,32 @@
                                 <div class="col-sm mt-2  mb-2">
                                     <p>niveau: {{ reservation.levelDive }}</p>
                                 </div>
-                                  {% if is_granted('ROLE_ADMIN') %}
-                                      <div class="col-sm">
-                                          <a class="btn btn-danger btn  mt-2  mb-2" onclick="return confirm(`Etes vous sur de vouloir supprimer la participation de : {{ reservation.pseudo }} ?`)" href="{{path('reservation_delete_Member', {'id': reservation.id}) }}"><img style="width:25px; height:25px;" src="/pictures/bin.png"></a>
-                                      </div>
+                                {% if (reservation.needCar == 1) %}
+                                    <div class="col-sm mt-2  mb-2">
+                                          <p class="text-success">J'ai besoin d'un transport</p>
+                                          <p>Tel: {{ reservation.phone1 }}</p>
+                                    </div>
+                                 {% elseif (reservation.driverCar == 1) %}
+                                     <div class="col-sm mt-2  mb-2">
+                                         <p class="text-success">J'ai {{ reservation.placeCar }} place(s) disponible(s) dans ma voiture</p>
+                                         <p>Tel: {{ reservation.phone1 }}</p>
+                                     </div>
                                   {% endif %}
                               </div>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <a class="col-auto btn btn-danger btn  mt-2  mb-2" onclick="return confirm(`Etes vous sur de vouloir supprimer la participation de : {{ reservation.pseudo }} ?`)" href="{{path('reservation_delete_Member', {'id': reservation.id}) }}"><img style="width:25px; height:25px;" src="/pictures/bin.png"></a>
+
+                                {% endif %}
                             </div>
                         {% else %}
                             <div class="container border border-secondary mb-2 font-weight-bold bg-warning ">
                                 <div class="row">
                                     <div class="col-sm mt-2  mb-2">
+                                    {% if is_granted('ROLE_ADMIN') %}
                                         <a onclick="return confirm(`Vous allez valider la participation de: {{ reservation.pseudo }}`)" href="{{ path('reservation_div_members_attente', {'id': reservation.id}) }}">{{ reservation.name }} {{ reservation.firstName }}</a>
+                                    {% else %}
+                                        <p>{{ reservation.name }} {{ reservation.firstName }}</p>
+                                    {% endif %}
                                     </div>
                                     <div class="col-sm mt-2  mb-2">
                                         <p>alias  "{{ reservation.pseudo }}"</p>
@@ -42,12 +56,10 @@
                                     <div class="col-sm mt-2  mb-2">
                                         <p>niveau: {{ reservation.levelDive }}</p>
                                     </div>
-                                    {% if is_granted('ROLE_ADMIN') %}
-                                        <div class="col-sm">
-                                            <a class="btn btn-danger btn  mt-2  mb-2" onclick="return confirm(`Etes vous sur de vouloir supprimer la participation de : {{ reservation.pseudo }} ?`)" href="{{path('reservation_delete_Member', {'id': reservation.id}) }}"><img style="width:25px; height:25px;" src="/pictures/bin.png"></a>
-                                        </div>
-                                    {% endif %}
                                 </div>
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <a class="col-auto btn btn-danger btn  mt-2  mb-2" onclick="return confirm(`Etes vous sur de vouloir supprimer la participation de : {{ reservation.pseudo }} ?`)" href="{{path('reservation_delete_Member', {'id': reservation.id}) }}"><img style="width:25px; height:25px;" src="/pictures/bin.png"></a>
+                                {% endif %}
                             </div>
                         {% endif %}
                     {% endfor %}

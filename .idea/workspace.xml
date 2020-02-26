@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54a94944-e21b-4d99-a4fe-9d2788f5616f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/DivingFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/DivingFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/pictures/bus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/pictures/icon-attention-png-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/pictures/materiel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/member/reservationsAll.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ReservationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ReservationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Reservation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ReservationType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ReservationType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ReservationRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ReservationRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/member/reservations.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/member/reservations.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reservation/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/reservation/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/reservation/show.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,13 +165,13 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/pictures" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/pictures/photoplongeesite" />
       <recent name="$PROJECT_DIR$/templates/member" />
       <recent name="$PROJECT_DIR$/templates/reservation" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/pictures" />
     </key>
   </component>
   <component name="StructureViewFactory">
@@ -215,7 +226,7 @@
       <workItem from="1582552191754" duration="6914000" />
       <workItem from="1582616874119" duration="9701000" />
       <workItem from="1582640283764" duration="618000" />
-      <workItem from="1582703566989" duration="12283000" />
+      <workItem from="1582703566989" duration="23043000" />
     </task>
     <servers />
   </component>

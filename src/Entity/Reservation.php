@@ -48,6 +48,21 @@ class Reservation
      */
     private $sizeSuit;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $needCar;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $driverCar;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $placeCar;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -109,6 +124,42 @@ class Reservation
     public function setSizeSuit(?string $sizeSuit): self
     {
         $this->sizeSuit = $sizeSuit;
+
+        return $this;
+    }
+
+    public function getNeedCar(): ?bool
+    {
+        return $this->needCar;
+    }
+
+    public function setNeedCar(?bool $needCar): self
+    {
+        $this->needCar = $needCar;
+
+        return $this;
+    }
+
+    public function getDriverCar(): ?bool
+    {
+        return $this->driverCar;
+    }
+
+    public function setDriverCar(?bool $driverCar): self
+    {
+        $this->driverCar = $driverCar;
+
+        return $this;
+    }
+
+    public function getPlaceCar(): ?int
+    {
+        return $this->placeCar;
+    }
+
+    public function setPlaceCar(?int $placeCar): self
+    {
+        $this->placeCar = $placeCar;
 
         return $this;
     }

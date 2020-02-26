@@ -34,6 +34,24 @@ class ReservationType extends AbstractType
                 'label_attr'=>[
                     'class'=>'radio-inline'
                 ] ])
+            ->add('needCar',CheckboxType::class, [
+                'label'    => "J'ai besoin d'un transport",
+                'required' => false])
+            ->add('driverCar',CheckboxType::class, [
+                'label'    => "Je peux emmener des personnes",
+                'required' => false])
+            ->add('placeCar',ChoiceType::class, [
+                'choices' => [
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                ],  'expanded' => true,
+                'multiple' => false,
+                'required'   => false,
+                'placeholder' => false,
+                'label_attr'=>[
+                    'class'=>'radio-inline'
+                ] ])
         ;
     }
 

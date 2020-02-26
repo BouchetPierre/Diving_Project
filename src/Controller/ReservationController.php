@@ -69,7 +69,7 @@ class ReservationController extends AbstractController
     }
 
     /**
-     * Permet d'afficher les plongées en fonction du user
+     * Permet d'afficher les plongées en fonction du user avec limite de temps
      *
      * @Route ("members/reservations/{id}", name="member_reservation")
      * @ISGranted("ROLE_USER")
@@ -80,6 +80,22 @@ class ReservationController extends AbstractController
         $reservations = $repo->findByUser($id);
 
         return $this->render('member/reservations.html.twig', [
+            'reservations' => $reservations
+        ]);
+    }
+
+    /**
+     * Permet d'afficher toutes les plongées en fonction du user
+     *
+     * @Route ("members/reservationsAll/{id}", name="reservationsAll")
+     * @ISGranted("ROLE_USER")
+     * @return Response
+     */
+    public function ReservationsAll($id, ReservationRepository $repo)
+    {
+        $reservations = $repo->findByUser($id);
+
+        return $this->render('member/reservationsAll.html.twig', [
             'reservations' => $reservations
         ]);
     }
