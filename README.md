@@ -1,19 +1,19 @@
 # Diving_Project
 ## Module de réservation de plongée Club de la Mer
 
-## Module de reservation accessible pour les membres du club
+## Module de réservation accessible pour les membres du club
 #### Les membres peuvent:
 - Voir les plongées programmées
-- S'incrire à une plongée (notifier un besoin de materiel)
+- S'incrire à une plongée (notifier un besoin de matériel)
 - Voir leur planning de résa
-- Voir qui est inscrit aux différentes plongées.
+- Voir les personne inscritent aux différentes plongées.
 - Demander un covoiturage
 - Poposer un covoiturage avec le nombre de places disponibles
-- Modifier les info perso
+- Modifier les infos persos
 - Poser une question aux admins
 
 #### Les Admin peuvent:
-- faire ce que les membres font
+- faire les mêmes actions que les membres
 - Creer une fiche membre **(CRUD)**
 - Créer un événement plongée **(CRUD)**
 - Editer la feuille de palanquée (avec le niveau de chaque membre et le besoin en matériel)
