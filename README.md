@@ -13,7 +13,7 @@
 - Poser une question aux admins
 
 #### Les Admin peuvent:
-- faire ce que les memebres font
+- faire ce que les membres font
 - Creer une fiche membre **(CRUD)**
 - Créer un événement plongée **(CRUD)**
 - Editer la feuille de palanquée (avec le niveau de chaque membre et le besoin en matériel)
