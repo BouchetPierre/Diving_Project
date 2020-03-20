@@ -1,4 +1,5 @@
-# Diving_Project
+# Diving_Project (Deployée sur Heroku) 
+http://divingproject.herokuapp.com
 ## Module de réservation de plongée Club de la Mer
 
 ## Module de réservation accessible pour les membres du club
